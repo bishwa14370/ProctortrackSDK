@@ -8,7 +8,6 @@
 
 import UIKit
 import AVFoundation
-import AssetsLibrary
 
 @available(iOS 9.0, *)
 class FaceScanVC: UIViewController,AVCaptureFileOutputRecordingDelegate,FaceScanOverlayDelegate,AVCaptureMetadataOutputObjectsDelegate {
@@ -134,31 +133,31 @@ class FaceScanVC: UIViewController,AVCaptureFileOutputRecordingDelegate,FaceScan
         
         if(deviceSize() == "X" || deviceSize() == "Xr")
         {
-            overLayImageView.image = UIImage(named: "DefaultFaceScanOverlayX")
+            overLayImageView.image = UIImage(named: "DefaultFaceScanOverlayX", in: Bundle(for: type(of: self)), compatibleWith: nil)
         }
         else if(deviceSize() == "iPad 9.7")
         {
-            overLayImageView.image = UIImage(named: "defaultFaceOverlay9.7")
+            overLayImageView.image = UIImage(named: "defaultFaceOverlay9.7", in: Bundle(for: type(of: self)), compatibleWith: nil)
         }
         else if(deviceSize() == "iPad 10.2")
         {
-            overLayImageView.image = UIImage(named: "defaultFaceOverlay10.5")
+            overLayImageView.image = UIImage(named: "defaultFaceOverlay10.5", in: Bundle(for: type(of: self)), compatibleWith: nil)
         }
         else if(deviceSize() == "iPad 10.5")
         {
-            overLayImageView.image = UIImage(named: "defaultFaceOverlay10.5")
+            overLayImageView.image = UIImage(named: "defaultFaceOverlay10.5", in: Bundle(for: type(of: self)), compatibleWith: nil)
         }
         else if(deviceSize() == "iPad 11")
         {
-            overLayImageView.image = UIImage(named: "defaultFaceOverlay10.5")
+            overLayImageView.image = UIImage(named: "defaultFaceOverlay10.5", in: Bundle(for: type(of: self)), compatibleWith: nil)
         }
         else if(deviceSize() == "iPad 12.9")
         {
-            overLayImageView.image = UIImage(named: "defaultFaceOverlay12.9")
+            overLayImageView.image = UIImage(named: "defaultFaceOverlay12.9", in: Bundle(for: type(of: self)), compatibleWith: nil)
         }
         else
         {
-            overLayImageView.image = UIImage(named: "DefaultFaceScanOverlay")
+            overLayImageView.image = UIImage(named: "DefaultFaceScanOverlay", in: Bundle(for: type(of: self)), compatibleWith: nil)
         }
         
         if isFaceScanTimeEnd {
@@ -184,31 +183,31 @@ class FaceScanVC: UIViewController,AVCaptureFileOutputRecordingDelegate,FaceScan
         overLayImageView  = UIImageView(frame: CGRect(x: self.view.frame.origin.x, y: self.view.frame.origin.y, width: self.view.frame.width, height: self.view.frame.height))
         if(deviceSize() == "X" || deviceSize() == "Xr")
         {
-            overLayImageView.image = UIImage(named: "DefaultFaceScanOverlayX")
+            overLayImageView.image = UIImage(named: "DefaultFaceScanOverlayX", in: Bundle(for: type(of: self)), compatibleWith: nil)
         }
         else if(deviceSize() == "iPad 9.7")
         {
-            overLayImageView.image = UIImage(named: "defaultFaceOverlay9.7")
+            overLayImageView.image = UIImage(named: "defaultFaceOverlay9.7", in: Bundle(for: type(of: self)), compatibleWith: nil)
         }
         else if(deviceSize() == "iPad 10.2")
         {
-            overLayImageView.image = UIImage(named: "defaultFaceOverlay10.5")
+            overLayImageView.image = UIImage(named: "defaultFaceOverlay10.5", in: Bundle(for: type(of: self)), compatibleWith: nil)
         }
         else if(deviceSize() == "iPad 10.5")
         {
-            overLayImageView.image = UIImage(named: "defaultFaceOverlay10.5")
+            overLayImageView.image = UIImage(named: "defaultFaceOverlay10.5", in: Bundle(for: type(of: self)), compatibleWith: nil)
         }
         else if(deviceSize() == "iPad 11")
         {
-            overLayImageView.image = UIImage(named: "defaultFaceOverlay10.5")
+            overLayImageView.image = UIImage(named: "defaultFaceOverlay10.5", in: Bundle(for: type(of: self)), compatibleWith: nil)
         }
         else if(deviceSize() == "iPad 12.9")
         {
-            overLayImageView.image = UIImage(named: "defaultFaceOverlay12.9")
+            overLayImageView.image = UIImage(named: "defaultFaceOverlay12.9", in: Bundle(for: type(of: self)), compatibleWith: nil)
         }
         else
         {
-            overLayImageView.image = UIImage(named: "DefaultFaceScanOverlay")
+            overLayImageView.image = UIImage(named: "DefaultFaceScanOverlay", in: Bundle(for: type(of: self)), compatibleWith: nil)
         }
         
         overLayImageView.isUserInteractionEnabled = true
@@ -331,31 +330,31 @@ class FaceScanVC: UIViewController,AVCaptureFileOutputRecordingDelegate,FaceScan
         {
             if(deviceSize() == "X" || deviceSize() == "Xr")
             {
-                overLayImageView.image = UIImage(named: "LeftFaceOverlayX")
+                overLayImageView.image = UIImage(named: "LeftFaceOverlayX", in: Bundle(for: type(of: self)), compatibleWith: nil)
             }
             else if(deviceSize() == "iPad 9.7")
             {
-                overLayImageView.image = UIImage(named: "leftFaceOverlay9.7")
+                overLayImageView.image = UIImage(named: "leftFaceOverlay9.7", in: Bundle(for: type(of: self)), compatibleWith: nil)
             }
             else if(deviceSize() == "iPad 10.2")
             {
-                overLayImageView.image = UIImage(named: "leftFaceOverlay10.5")
+                overLayImageView.image = UIImage(named: "leftFaceOverlay10.5", in: Bundle(for: type(of: self)), compatibleWith: nil)
             }
             else if(deviceSize() == "iPad 10.5")
             {
-                overLayImageView.image = UIImage(named: "leftFaceOverlay10.5")
+                overLayImageView.image = UIImage(named: "leftFaceOverlay10.5", in: Bundle(for: type(of: self)), compatibleWith: nil)
             }
             else if(deviceSize() == "iPad 11")
             {
-                overLayImageView.image = UIImage(named: "leftFaceOverlay10.5")
+                overLayImageView.image = UIImage(named: "leftFaceOverlay10.5", in: Bundle(for: type(of: self)), compatibleWith: nil)
             }
             else if(deviceSize() == "iPad 12.9")
             {
-                overLayImageView.image = UIImage(named: "leftFaceOverlay12.9")
+                overLayImageView.image = UIImage(named: "leftFaceOverlay12.9", in: Bundle(for: type(of: self)), compatibleWith: nil)
             }
             else
             {
-                overLayImageView.image = UIImage(named: "LeftFaceOverlay")
+                overLayImageView.image = UIImage(named: "LeftFaceOverlay", in: Bundle(for: type(of: self)), compatibleWith: nil)
             }
             
             instructionLabel.text = "FACE LEFT"
@@ -378,31 +377,31 @@ class FaceScanVC: UIViewController,AVCaptureFileOutputRecordingDelegate,FaceScan
         {
             if(deviceSize() == "X" || deviceSize() == "Xr")
             {
-                overLayImageView.image = UIImage(named: "RightFaceOverlayX")
+                overLayImageView.image = UIImage(named: "RightFaceOverlayX", in: Bundle(for: type(of: self)), compatibleWith: nil)
             }
             else if(deviceSize() == "iPad 9.7")
             {
-                overLayImageView.image = UIImage(named: "rightFaceOverlay9.7")
+                overLayImageView.image = UIImage(named: "rightFaceOverlay9.7", in: Bundle(for: type(of: self)), compatibleWith: nil)
             }
             else if(deviceSize() == "iPad 10.2")
             {
-                overLayImageView.image = UIImage(named: "rightFaceOverlay10.5")
+                overLayImageView.image = UIImage(named: "rightFaceOverlay10.5", in: Bundle(for: type(of: self)), compatibleWith: nil)
             }
             else if(deviceSize() == "iPad 10.5")
             {
-                overLayImageView.image = UIImage(named: "rightFaceOverlay10.5")
+                overLayImageView.image = UIImage(named: "rightFaceOverlay10.5", in: Bundle(for: type(of: self)), compatibleWith: nil)
             }
             else if(deviceSize() == "iPad 11")
             {
-                overLayImageView.image = UIImage(named: "rightFaceOverlay10.5")
+                overLayImageView.image = UIImage(named: "rightFaceOverlay10.5", in: Bundle(for: type(of: self)), compatibleWith: nil)
             }
             else if(deviceSize() == "iPad 12.9")
             {
-                overLayImageView.image = UIImage(named: "rightFaceOverlay12.9")
+                overLayImageView.image = UIImage(named: "rightFaceOverlay12.9", in: Bundle(for: type(of: self)), compatibleWith: nil)
             }
             else
             {
-                overLayImageView.image =  UIImage(named: "RightFaceOverlay")
+                overLayImageView.image = UIImage(named: "RightFaceOverlay", in: Bundle(for: type(of: self)), compatibleWith: nil)
             }
             instructionLabel.text = "FACE RIGHT"
             instructionLabel.attributedText = textColorChange(text: "RIGHT")
@@ -422,31 +421,31 @@ class FaceScanVC: UIViewController,AVCaptureFileOutputRecordingDelegate,FaceScan
         else if(progress <= 0.99){
             if(deviceSize() == "X" || deviceSize() == "Xr")
             {
-                overLayImageView.image = UIImage(named: "FullFaceOverlayX")
+                overLayImageView.image = UIImage(named: "FullFaceOverlayX", in: Bundle(for: type(of: self)), compatibleWith: nil)
             }
             else if(deviceSize() == "iPad 9.7")
             {
-                overLayImageView.image = UIImage(named: "FullFaceOverlay9.7")
+                overLayImageView.image = UIImage(named: "FullFaceOverlay9.7", in: Bundle(for: type(of: self)), compatibleWith: nil)
             }
             else if(deviceSize() == "iPad 10.2")
             {
-                overLayImageView.image = UIImage(named: "fullFaceOverlay10.5")
+                overLayImageView.image = UIImage(named: "fullFaceOverlay10.5", in: Bundle(for: type(of: self)), compatibleWith: nil)
             }
             else if(deviceSize() == "iPad 10.5")
             {
-                overLayImageView.image = UIImage(named: "fullFaceOverlay10.5")
+                overLayImageView.image = UIImage(named: "fullFaceOverlay10.5", in: Bundle(for: type(of: self)), compatibleWith: nil)
             }
             else if(deviceSize() == "iPad 11")
             {
-                overLayImageView.image = UIImage(named: "fullFaceOverlay10.5")
+                overLayImageView.image = UIImage(named: "fullFaceOverlay10.5", in: Bundle(for: type(of: self)), compatibleWith: nil)
             }
             else if(deviceSize() == "iPad 12.9")
             {
-                overLayImageView.image = UIImage(named: "fullFaceOverlay12.9")
+                overLayImageView.image = UIImage(named: "fullFaceOverlay12.9", in: Bundle(for: type(of: self)), compatibleWith: nil)
             }
             else
             {
-                overLayImageView.image = UIImage(named: "FullFaceOverlay")
+                overLayImageView.image = UIImage(named: "FullFaceOverlay", in: Bundle(for: type(of: self)), compatibleWith: nil)
             }
             instructionLabel.text = "FACE FORWARD"
             instructionLabel.attributedText = textColorChange(text: "FORWARD")
@@ -476,31 +475,31 @@ class FaceScanVC: UIViewController,AVCaptureFileOutputRecordingDelegate,FaceScan
             progress = 1
             if(deviceSize() == "X" || deviceSize() == "Xr")
             {
-                overLayImageView.image = UIImage(named: "DefaultFaceScanOverlayX")
+                overLayImageView.image = UIImage(named: "DefaultFaceScanOverlayX", in: Bundle(for: type(of: self)), compatibleWith: nil)
             }
             else if(deviceSize() == "iPad 9.7")
             {
-                overLayImageView.image = UIImage(named: "defaultFaceOverlay9.7")
+                overLayImageView.image = UIImage(named: "defaultFaceOverlay9.7", in: Bundle(for: type(of: self)), compatibleWith: nil)
             }
             else if(deviceSize() == "iPad 10.2")
             {
-                overLayImageView.image = UIImage(named: "defaultFaceOverlay10.5")
+                overLayImageView.image = UIImage(named: "defaultFaceOverlay10.5", in: Bundle(for: type(of: self)), compatibleWith: nil)
             }
             else if(deviceSize() == "iPad 10.5")
             {
-                overLayImageView.image = UIImage(named: "defaultFaceOverlay10.5")
+                overLayImageView.image = UIImage(named: "defaultFaceOverlay10.5", in: Bundle(for: type(of: self)), compatibleWith: nil)
             }
             else if(deviceSize() == "iPad 11")
             {
-                overLayImageView.image = UIImage(named: "defaultFaceOverlay10.5")
+                overLayImageView.image = UIImage(named: "defaultFaceOverlay10.5", in: Bundle(for: type(of: self)), compatibleWith: nil)
             }
             else if(deviceSize() == "iPad 12.9")
             {
-                overLayImageView.image = UIImage(named: "defaultFaceOverlay12.9")
+                overLayImageView.image = UIImage(named: "defaultFaceOverlay12.9", in: Bundle(for: type(of: self)), compatibleWith: nil)
             }
             else
             {
-                overLayImageView.image = UIImage(named: "DefaultFaceScanOverlay")
+                overLayImageView.image = UIImage(named: "DefaultFaceScanOverlay", in: Bundle(for: type(of: self)), compatibleWith: nil)
             }
             instructionLabel.text = instructionTextForRTFV
             instructionLabel.attributedText = textColorChange(text: "BLUE")
@@ -774,31 +773,31 @@ class FaceScanVC: UIViewController,AVCaptureFileOutputRecordingDelegate,FaceScan
                
                 if(deviceSize() == "X" || deviceSize() == "Xr")
                 {
-                    overLayImageView.image = UIImage(named: "FullFaceOverlayX")
+                    overLayImageView.image = UIImage(named: "FullFaceOverlayX", in: Bundle(for: type(of: self)), compatibleWith: nil)
                 }
                 else if(deviceSize() == "iPad 9.7")
                 {
-                    overLayImageView.image = UIImage(named: "FullFaceOverlay9.7")
+                    overLayImageView.image = UIImage(named: "FullFaceOverlay9.7", in: Bundle(for: type(of: self)), compatibleWith: nil)
                 }
                 else if(deviceSize() == "iPad 10.2")
                 {
-                    overLayImageView.image = UIImage(named: "fullFaceOverlay10.5")
+                    overLayImageView.image = UIImage(named: "fullFaceOverlay10.5", in: Bundle(for: type(of: self)), compatibleWith: nil)
                 }
                 else if(deviceSize() == "iPad 10.5")
                 {
-                    overLayImageView.image = UIImage(named: "fullFaceOverlay10.5")
+                    overLayImageView.image = UIImage(named: "ullFaceOverlay10.5", in: Bundle(for: type(of: self)), compatibleWith: nil)
                 }
                 else if(deviceSize() == "iPad 11")
                 {
-                    overLayImageView.image = UIImage(named: "fullFaceOverlay10.5")
+                    overLayImageView.image = UIImage(named: "fullFaceOverlay10.5", in: Bundle(for: type(of: self)), compatibleWith: nil)
                 }
                 else if(deviceSize() == "iPad 12.9")
                 {
-                    overLayImageView.image = UIImage(named: "fullFaceOverlay12.9")
+                    overLayImageView.image = UIImage(named: "fullFaceOverlay12.9", in: Bundle(for: type(of: self)), compatibleWith: nil)
                 }
                 else
                 {
-                    overLayImageView.image = UIImage(named: "FullFaceOverlay")
+                    overLayImageView.image = UIImage(named: "FullFaceOverlay", in: Bundle(for: type(of: self)), compatibleWith: nil)
                 }
                 detectionCounter = detectionCounter + 1
         
@@ -815,34 +814,33 @@ class FaceScanVC: UIViewController,AVCaptureFileOutputRecordingDelegate,FaceScan
             else
             {
                 detectionCounter = 0
-                print("Face lie out side the frame")
                 if(deviceSize() == "X" || deviceSize() == "Xr")
                 {
-                    overLayImageView.image = UIImage(named: "DefaultFaceScanOverlayX")
+                    overLayImageView.image = UIImage(named: "DefaultFaceScanOverlayX", in: Bundle(for: type(of: self)), compatibleWith: nil)
                 }
                 else if(deviceSize() == "iPad 9.7")
                 {
-                    overLayImageView.image = UIImage(named: "defaultFaceOverlay9.7")
+                    overLayImageView.image = UIImage(named: "defaultFaceOverlay9.7", in: Bundle(for: type(of: self)), compatibleWith: nil)
                 }
                 else if(deviceSize() == "iPad 10.2")
                 {
-                    overLayImageView.image = UIImage(named: "defaultFaceOverlay10.5")
+                    overLayImageView.image = UIImage(named: "defaultFaceOverlay10.5", in: Bundle(for: type(of: self)), compatibleWith: nil)
                 }
                 else if(deviceSize() == "iPad 10.5")
                 {
-                    overLayImageView.image = UIImage(named: "defaultFaceOverlay10.5")
+                    overLayImageView.image = UIImage(named: "defaultFaceOverlay10.5", in: Bundle(for: type(of: self)), compatibleWith: nil)
                 }
                 else if(deviceSize() == "iPad 11")
                 {
-                    overLayImageView.image = UIImage(named: "defaultFaceOverlay10.5")
+                    overLayImageView.image = UIImage(named: "defaultFaceOverlay10.5", in: Bundle(for: type(of: self)), compatibleWith: nil)
                 }
                 else if(deviceSize() == "iPad 12.9")
                 {
-                    overLayImageView.image = UIImage(named: "defaultFaceOverlay12.9")
+                    overLayImageView.image = UIImage(named: "defaultFaceOverlay12.9", in: Bundle(for: type(of: self)), compatibleWith: nil)
                 }
                 else
                 {
-                    overLayImageView.image = UIImage(named: "DefaultFaceScanOverlay")
+                    overLayImageView.image = UIImage(named: "DefaultFaceScanOverlay", in: Bundle(for: type(of: self)), compatibleWith: nil)
                 }
             }
         }

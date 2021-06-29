@@ -234,33 +234,25 @@ class IdentityVerificationVC: UIViewController {
     }
     
     //Custom View style function
-  fileprivate  func viewStyleMethod ()
-    {
+  fileprivate  func viewStyleMethod () {
         contentView.dropShadow()
-        checkBoxButton.setImage(UIImage(named: "CheckBoxFilled-g"), for: .selected )
-        checkBoxButton.setImage(UIImage(named: "CheckBoxBlank-g"), for: .normal )
-        if((UserDefaults.standard.object(forKey:"identityVerificationStatus")) != nil)
-        {
+        checkBoxButton.setImage(UIImage(named: "CheckBoxFilled-g", in: Bundle(for: type(of: self)), compatibleWith: nil), for: .selected)
+        checkBoxButton.setImage(UIImage(named: "CheckBoxBlank-g", in: Bundle(for: type(of: self)), compatibleWith: nil), for: .normal)
+        if((UserDefaults.standard.object(forKey:"identityVerificationStatus")) != nil) {
             checkBoxButton.isSelected = true
         }
         self.navigationBarAddMethod()
     }
     
     //ChcekBox Button Action function
-    @IBAction func checkBoxButtonAction(_ sender: Any)
-    {
+    @IBAction func checkBoxButtonAction(_ sender: Any) {
         checkBoxButton.isSelected = !checkBoxButton.isSelected
-        if(checkBoxButton.isSelected)
-        {
-            print("Chcek box is selected")
+        if(checkBoxButton.isSelected) {
             UserDefaults.standard.set(true, forKey:"identityVerificationStatus")
         }
-        else
-        {
+        else {
             UserDefaults.standard.removeObject(forKey: "identityVerificationStatus")
-            print("Chcek box is Unslected")
         }
-        
     }
     
     //Function for allow button Action
@@ -270,45 +262,22 @@ class IdentityVerificationVC: UIViewController {
     
     func navigateToScreenAccordingToConfiguration()
     {
-        if(faceScanRequired == true)
-        {
+        if(faceScanRequired == true) {
             performSegue(withIdentifier: faceScanSegue, sender: self)
         }
-        else if(photoIdRequired == true)
-        {
-                    let moveVC = self.storyboard?.instantiateViewController(withIdentifier: idScanViewController) as! IDScanVC
-                    self.navigationController?.pushViewController(moveVC, animated: true)
+        else if(photoIdRequired == true) {
+            let moveVC = self.storyboard?.instantiateViewController(withIdentifier: idScanViewController) as! IDScanVC
+            self.navigationController?.pushViewController(moveVC, animated: true)
         }
-        else if(roomScanRequired == true)
-        {
-                    let moveVC = self.storyboard?.instantiateViewController(withIdentifier: roomScanViewController) as! RoomScanNewVC
-                    self.navigationController?.pushViewController(moveVC, animated: true)
+        else if(roomScanRequired == true) {
+            let moveVC = self.storyboard?.instantiateViewController(withIdentifier: roomScanViewController) as! RoomScanNewVC
+            self.navigationController?.pushViewController(moveVC, animated: true)
         }
-        else
-        {
+        else {
             let moveVC = self.storyboard?.instantiateViewController(withIdentifier: verificationCompletedScreen) as! VerificationCompletedVC
             self.navigationController?.pushViewController(moveVC, animated: true)
         }
-        
     }
-    
-    
-    //function for memory management
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }
 extension UIView {
     

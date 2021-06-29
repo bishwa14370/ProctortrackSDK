@@ -86,13 +86,11 @@ class FaceScanOverlayVC: UIViewController {
         faceScanImageView.clipsToBounds = true
         faceScanImageView.layer.borderWidth = 2
         faceScanImageView.layer.borderColor = appThemeColorCode.cgColor
-//        let  image = UIImage.gifImageWithName("FaceScan_Marcela")
-//        self.faceScanImageView.image = image
-//        
+        
         gotItButton.layer.cornerRadius = buttonRoundCornerValue
         //Checkbox button handling
-        checkBoxButton.setImage(UIImage(named: "CheckBoxFilled-g"), for: .selected )
-        checkBoxButton.setImage(UIImage(named: "CheckBoxBlank-g"), for: .normal )
+        checkBoxButton.setImage(UIImage(named: "CheckBoxFilled-g", in: Bundle(for: type(of: self)), compatibleWith: nil), for: .selected)
+        checkBoxButton.setImage(UIImage(named: "CheckBoxBlank-g", in: Bundle(for: type(of: self)), compatibleWith: nil), for: .normal)
         
         if((UserDefaults.standard.object(forKey:"faceScanChcekBoxStatus")) != nil)
         {

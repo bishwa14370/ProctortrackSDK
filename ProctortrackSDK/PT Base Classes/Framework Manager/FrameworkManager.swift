@@ -14,16 +14,15 @@ struct Configuration {
     }
 }
 
-open class FrameworkManager: NSObject {
+open class FrameworkManager: NSObject, SDKClientDelegate {
     
-    static var isFrameworkInitialized: Bool = true
-    static var isIdentityVerified: Bool = false
+    private var isFrameworkInitialized: Bool = false
+    private var isIdentityVerified: Bool = false
+    private var isMonitoringSetUp: Bool = false
+    public weak var delegate: FrameworkManagerDelegate?
     
-    private override init() {
-    }
-    
-    public static func initFramework(url: String, clientSecretKey: String, bundleId: String, completion: @escaping (Bool, String?) -> Void) {
-        FrameworkServices.validateLicense(url: url, clientSecretKey: clientSecretKey, bundleId: bundleId) { (success, message) in
+    public func initFramework(url: String, client_id: String, account_id: String, first_name: String, last_name: String, email: String, completion: @escaping (Bool, String?) -> Void) {
+        FrameworkServices.validateLicense(url: url, clientId: client_id, accountId: account_id, firstName: first_name, lastName: last_name, email: email) { (success, message) in
             if success {
                 let config = Configuration.init(urlString: url, auth_key: "auth_key")
                 self.createTestSession(config: config) { (success, message) in
@@ -42,38 +41,84 @@ open class FrameworkManager: NSObject {
         }
     }
     
-    private static func createTestSession(config: Configuration, completion: @escaping (Bool, String?) -> Void) {
+    private func createTestSession(config: Configuration, completion: @escaping (Bool, String?) -> Void) {
         FrameworkServices.createTestSession(config: config) { (result, message) in
             completion(result, message)
         }
     }
     
-    public static func startIdentityVerification(caller: UIViewController, completion: @escaping (String) -> Void) {
+    public func startIdentityVerification(caller: UIViewController, completion: @escaping (String?) -> Void) {
         if isFrameworkInitialized {
             Utility.performSegueToIdentityVerification(caller: caller)
-            completion("Id verification success.")
+            self.isIdentityVerified = true
+            completion("Id verification started.")
         }
         else {
             completion("Id verification failed, please initialize SDK first.")
         }
     }
     
-    public static func setupLiveMonitoring(with cameraView: UIView, completion: @escaping (String) -> Void) {
+    public func setupRecording(completion: @escaping (String?) -> Void) {
         if(isFrameworkInitialized && isIdentityVerified) {
-         //   LiveMonitoring.shared.setupLiveCameraPreview(cameraView: cameraView)
-            completion("Setup live monitoring success.")
+            LiveMonitoring.shared.monitoringDelegate = self
+            LiveMonitoring.shared.setupLiveCameraPreview()
+            self.isMonitoringSetUp = true
+            completion(nil)
         }
         else {
-            completion("Setup live montoring failed, either framework initialization or identity verification has not been done.")
+            completion("Monitoring setup failed, please initialize framework and perform identity verification.")
         }
     }
     
-    public static func startRecording() {
-      //  LiveMonitoring.shared.startMovieRecording()
+    public func startRecording() {
+        LiveMonitoring.shared.startMovieRecording()
     }
     
-    public static func stopRecording() {
-      //  LiveMonitoring.shared.stopMovieRecording()
+    func sdkMonitoringError(message: String) {
+        if let delegate = self.delegate {
+            delegate.monitoringError(message: message)
+        }
+    }
+    
+    func clientDidConnect(message: String) {
+        if let delegate = self.delegate {
+            delegate.clientDidConnect(message: message)
+        }
+    }
+    
+    func clientDidDisconnect(message: String) {
+        if let delegate = self.delegate {
+            delegate.clientDidDisconnect(message: message)
+        }
+    }
+    
+    func clientHasError(message: String) {
+        if let delegate = self.delegate {
+            delegate.clientHasError(message: message)
+        }
+    }
+    
+    func publishStarted(message: String) {
+        if let delegate = self.delegate {
+            delegate.publishStarted(message: message)
+        }
     }
 }
 
+
+public protocol FrameworkManagerDelegate: NSObjectProtocol {
+    func monitoringError(message: String)
+    func clientDidConnect(message: String)
+    func clientDidDisconnect(message: String)
+    func clientHasError(message: String)
+    func publishStarted(message: String)
+}
+
+
+protocol SDKClientDelegate: NSObjectProtocol {
+    func sdkMonitoringError(message: String)
+    func clientDidConnect(message: String)
+    func clientDidDisconnect(message: String)
+    func clientHasError(message: String)
+    func publishStarted(message: String)
+}

@@ -18,5 +18,13 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Need camera access for verification scans and proctoring.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Need microphone access for proctoring.</string>
+	<key>UIMainStoryboardFile</key>
+	<string>Framework</string>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 </dict>
 </plist>

@@ -8,8 +8,6 @@
 
 import UIKit
 import AVFoundation
-import AVKit
-import CoreMedia
 
 class FaceScanResultVC: UIViewController {
     @IBOutlet weak var videoPlayView: UIView!
@@ -19,7 +17,7 @@ class FaceScanResultVC: UIViewController {
     var player: AVPlayer?
     var playerLayer: AVPlayerLayer?
     let screenSize : CGRect = UIScreen.main.bounds
-    let  playerVC = AVPlayerViewController()
+  //  let  playerVC = AVPlayerViewController()
     var tapView: Bool = false
     var videoPlayIcon: UIImageView!
     
@@ -125,7 +123,7 @@ class FaceScanResultVC: UIViewController {
         videoPlayIcon = UIImageView (frame: CGRect(x: 0, y: 0, width: 40 , height: 40))
         videoPlayIcon.center.x = self.view.center.x
         videoPlayIcon.center = self.view.center
-        videoPlayIcon.image = UIImage(named: "VideoPlay-g")?.maskWithColor(color: appThemeColorCode)
+        videoPlayIcon.image = UIImage(named: "VideoPlay-g", in: Bundle(for: type(of: self)), compatibleWith: nil)?.maskWithColor(color: appThemeColorCode)
         self.view.addSubview(videoPlayIcon)
         reScanButton.layer.cornerRadius = buttonRoundCornerValue
         submitButton.layer.cornerRadius = buttonRoundCornerValue
@@ -158,13 +156,10 @@ class FaceScanResultVC: UIViewController {
     
     //rescanButtonAction function
     @IBAction func reScanButtonAction(_ sender: Any) {
-        if(kibanaLogEnable == true)
-               {
-                   
-                   let finalMessage = kibanaPrefix + "event:face_scan_rescan"
-                   NetworkingClass.submitKibanaLogApiCallFromNative(message: finalMessage, level: kibanaLevelName)
-               }
-        //print("Back Button Clicked")
+        if(kibanaLogEnable == true) {
+            let finalMessage = kibanaPrefix + "event:face_scan_rescan"
+            NetworkingClass.submitKibanaLogApiCallFromNative(message: finalMessage, level: kibanaLevelName)
+        }
         _ = navigationController?.popViewController(animated: true)
     }
     
@@ -175,98 +170,23 @@ class FaceScanResultVC: UIViewController {
             let finalMessage = kibanaPrefix + "event:face_scan_submit"
             NetworkingClass.submitKibanaLogApiCallFromNative(message: finalMessage, level: kibanaLevelName)
         }
-        if(bypassScanUploadFlow == true){
-//            if requires_id_scan_verification {
-//                self.navigateToFaceVerificationScreen()
-//            }
-//            else {
-//                self.navigateToScreenAccordingToConfiguration()
-//            }
-            self.navigateToScreenAccordingToConfiguration()
-        }
-        else {
-            self.uploadingChunksInBackground()
-        }
-    }
-    
-//    private func navigateToFaceVerificationScreen() {
-//        let moveVC = self.storyboard?.instantiateViewController(withIdentifier: "FaceScanVerificationViewController") as! FaceScanVerificationViewController
-//        self.navigationController?.pushViewController(moveVC, animated: true)
-//    }
-    
-    //UploadChunksInBackGround
-    func uploadingChunksInBackground()
-    {
-        let sendResponse = sendSocketConnection(socketMessage: UDP_CODE_FACE_SCAN_SUCCESS + "_" + UserDefaults.standard.string(forKey: testsession_id)!)
-        print("Pringt the response of the socket message send",UDP_CODE_FACE_SCAN_SUCCESS + "_" + UserDefaults.standard.string(forKey: testsession_id)!)
-        if sendResponse == false
-        {
-            print("UDP Message is not send for face scan completed")
-            if(kibanaLogEnable == true)
-            {
-                NetworkingClass.submitKibanaLogApiCallFromNative(message: "Udp message not send for face scan completed", level: kibanaLevelName)
-            }
-        }
-        else
-        {
-            if(kibanaLogEnable == true)
-            {
-                NetworkingClass.submitKibanaLogApiCallFromNative(message: UDP_CODE_FACE_SCAN_SUCCESS + "_" + UserDefaults.standard.string(forKey: testsession_id)!, level: kibanaLevelName)
-            }
-            print("UDP Message is send for face scan completed")
-        }
-        
         self.navigateToScreenAccordingToConfiguration()
-       
     }
-    
     
     func navigateToScreenAccordingToConfiguration()
     {
-        
-       if(photoIdRequired == true)
-        {
-              self.performSegue(withIdentifier: idScanScreenSegue, sender: self)
- 
+        if(photoIdRequired == true) {
+            self.performSegue(withIdentifier: idScanScreenSegue, sender: self)
         }
-        else if(roomScanRequired == true)
-        {
-            if(liveRoomScanRequired == true)
-            {
-                let moveVC = self.storyboard?.instantiateViewController(withIdentifier: roomScanViewController) as! RoomScanNewVC
-                self.navigationController?.pushViewController(moveVC, animated: true)
-            }
-            else
-            {
-                let moveVC = self.storyboard?.instantiateViewController(withIdentifier: roomScanViewController) as! RoomScanNewVC
-                self.navigationController?.pushViewController(moveVC, animated: true)
-            }
-            
+        else if(roomScanRequired == true) {
+            let moveVC = self.storyboard?.instantiateViewController(withIdentifier: roomScanViewController) as! RoomScanNewVC
+            self.navigationController?.pushViewController(moveVC, animated: true)
         }
-        else
-        {
+        else {
             let moveVC = self.storyboard?.instantiateViewController(withIdentifier: verificationCompletedScreen) as! VerificationCompletedVC
             self.navigationController?.pushViewController(moveVC, animated: true)
         }
-        
     }
-    
-    
-    //Memory management Function
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
 }
 
 extension UIViewController: UIGestureRecognizerDelegate {

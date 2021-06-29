@@ -53,46 +53,41 @@ class NotificationManager: NSObject,UNUserNotificationCenterDelegate {
     
     //show the notification if user switch the app from app deleegate
     class func scheduleLocalNotification() {
-        if ((UserDefaults.standard.string(forKey:sessionApiState)) != nil)
-        {
-            if ((UserDefaults.standard.object(forKey: sessionApiState)) as! String == "Start")
-            {
-                    // Configure User Notification Center
-                    UNUserNotificationCenter.current().delegate = self as? UNUserNotificationCenterDelegate
-                    
-                    // Define Actions
-                    let actionShowDetails = UNNotificationAction(identifier: Notification.Action.resume, title: "Resume Test", options: [.foreground])
-                    let actionCancel = UNNotificationAction(identifier: Notification.Action.cancel, title: "Cancel", options: [.destructive, .authenticationRequired])
-                    
-                    // Define Category
-                    let monitoringCategory = UNNotificationCategory(identifier: Notification.Category.monitoringTest, actions:  [actionShowDetails, actionCancel], intentIdentifiers: [], options: [])
-                    
-                    // Register Category
-                    UNUserNotificationCenter.current().setNotificationCategories([monitoringCategory])
-                    
-                    // Create Notification Content
-                    let notificationContent = UNMutableNotificationContent()
-                    
-                    // Configure Notification Content
-                    notificationContent.title = "Proctortrack Device Monitoring"
-                    // notificationContent.subtitle = "Local Notifications"
-                    notificationContent.body = "Please resume the Proctortrack App, otherwise it will be marked as a violation in 1 minute."
-                    
-                    // Set Category Identifier
-                    notificationContent.categoryIdentifier = Notification.Category.monitoringTest
-                
-                    // Add Trigger
-                    let notificationTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 01.0, repeats: false)
-
-                    // Create Notification Request
-                    let notificationRequest = UNNotificationRequest(identifier: "cocoacasts_local_notification", content: notificationContent, trigger: notificationTrigger)
-
-                    // Add Request to User Notification Center
-                    UNUserNotificationCenter.current().add(notificationRequest) { (error) in
-                        if let error = error {
-                            print("Unable to Add Notification Request (\(error), \(error.localizedDescription))")
-                        }
-                    }
+        
+        // Configure User Notification Center
+        UNUserNotificationCenter.current().delegate = self as? UNUserNotificationCenterDelegate
+        
+        // Define Actions
+        let actionShowDetails = UNNotificationAction(identifier: Notification.Action.resume, title: "Resume Test", options: [.foreground])
+        let actionCancel = UNNotificationAction(identifier: Notification.Action.cancel, title: "Cancel", options: [.destructive, .authenticationRequired])
+        
+        // Define Category
+        let monitoringCategory = UNNotificationCategory(identifier: Notification.Category.monitoringTest, actions:  [actionShowDetails, actionCancel], intentIdentifiers: [], options: [])
+        
+        // Register Category
+        UNUserNotificationCenter.current().setNotificationCategories([monitoringCategory])
+        
+        // Create Notification Content
+        let notificationContent = UNMutableNotificationContent()
+        
+        // Configure Notification Content
+        notificationContent.title = "Proctortrack Device Monitoring"
+        // notificationContent.subtitle = "Local Notifications"
+        notificationContent.body = "Please resume the Proctortrack App, otherwise it will be marked as a violation in 1 minute."
+        
+        // Set Category Identifier
+        notificationContent.categoryIdentifier = Notification.Category.monitoringTest
+        
+        // Add Trigger
+        let notificationTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 01.0, repeats: false)
+        
+        // Create Notification Request
+        let notificationRequest = UNNotificationRequest(identifier: "cocoacasts_local_notification", content: notificationContent, trigger: notificationTrigger)
+        
+        // Add Request to User Notification Center
+        UNUserNotificationCenter.current().add(notificationRequest) { (error) in
+            if let error = error {
+                print("Unable to Add Notification Request (\(error), \(error.localizedDescription))")
             }
         }
     }
@@ -217,47 +212,41 @@ class NotificationManager: NSObject,UNUserNotificationCenterDelegate {
     //Add multiple notification for particular time period.
     class func setNotificationForMonitoring(time : TimeInterval,identifier : String)
     {
-        if ((UserDefaults.standard.string(forKey:sessionApiState)) != nil)
-        {
-            if ((UserDefaults.standard.object(forKey: sessionApiState)) as! String == "Start")
-            {
-                // Configure User Notification Center
-                UNUserNotificationCenter.current().delegate = self as? UNUserNotificationCenterDelegate
-                
-                // Define Actions
-                let actionShowDetails = UNNotificationAction(identifier: Notification.Action.resume, title: "Resume Test", options: [.foreground])
-                let actionCancel = UNNotificationAction(identifier: Notification.Action.cancel, title: "Cancel", options: [.destructive, .authenticationRequired])
-                
-                // Define Category
-                let monitoringCategory = UNNotificationCategory(identifier: Notification.Category.monitoringTest, actions:  [actionShowDetails, actionCancel], intentIdentifiers: [], options: [])
-                
-                // Register Category
-                UNUserNotificationCenter.current().setNotificationCategories([monitoringCategory])
-                
-                // Create Notification Content
-                let notificationContent = UNMutableNotificationContent()
-                
-                // Configure Notification Content
-                notificationContent.title = "Proctortrack Device Monitoring"
-                // notificationContent.subtitle = "Local Notifications"
-                notificationContent.body = "Please resume the Proctortrack App, otherwise it will be marked as a violation in 1 minute."
-                
-                
-                // Set Category Identifier
-                notificationContent.categoryIdentifier = Notification.Category.monitoringTest
-                
-                // Add Trigger
-                let notificationTrigger = UNTimeIntervalNotificationTrigger(timeInterval: time, repeats: false)
-                
-                // Create Notification Request
-                let notificationRequest = UNNotificationRequest(identifier: identifier , content: notificationContent, trigger: notificationTrigger)
-                
-                // Add Request to User Notification Center
-                UNUserNotificationCenter.current().add(notificationRequest) { (error) in
-                    if let error = error {
-                        print("Unable to Add Notification Request (\(error), \(error.localizedDescription))")
-                    }
-                }
+        // Configure User Notification Center
+        UNUserNotificationCenter.current().delegate = self as? UNUserNotificationCenterDelegate
+        
+        // Define Actions
+        let actionShowDetails = UNNotificationAction(identifier: Notification.Action.resume, title: "Resume Test", options: [.foreground])
+        let actionCancel = UNNotificationAction(identifier: Notification.Action.cancel, title: "Cancel", options: [.destructive, .authenticationRequired])
+        
+        // Define Category
+        let monitoringCategory = UNNotificationCategory(identifier: Notification.Category.monitoringTest, actions:  [actionShowDetails, actionCancel], intentIdentifiers: [], options: [])
+        
+        // Register Category
+        UNUserNotificationCenter.current().setNotificationCategories([monitoringCategory])
+        
+        // Create Notification Content
+        let notificationContent = UNMutableNotificationContent()
+        
+        // Configure Notification Content
+        notificationContent.title = "Proctortrack Device Monitoring"
+        // notificationContent.subtitle = "Local Notifications"
+        notificationContent.body = "Please resume the Proctortrack App, otherwise it will be marked as a violation in 1 minute."
+        
+        
+        // Set Category Identifier
+        notificationContent.categoryIdentifier = Notification.Category.monitoringTest
+        
+        // Add Trigger
+        let notificationTrigger = UNTimeIntervalNotificationTrigger(timeInterval: time, repeats: false)
+        
+        // Create Notification Request
+        let notificationRequest = UNNotificationRequest(identifier: identifier , content: notificationContent, trigger: notificationTrigger)
+        
+        // Add Request to User Notification Center
+        UNUserNotificationCenter.current().add(notificationRequest) { (error) in
+            if let error = error {
+                print("Unable to Add Notification Request (\(error), \(error.localizedDescription))")
             }
         }
     }

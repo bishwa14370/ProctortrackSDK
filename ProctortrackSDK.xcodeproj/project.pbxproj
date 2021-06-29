@@ -7,13 +7,181 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		181627242670EDBF00C273FF /* LiveMonitoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181627232670EDBF00C273FF /* LiveMonitoring.swift */; };
+		18695AC326668094004BCB46 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 186B2C2426667C580052F99F /* AVFoundation.framework */; };
+		18695AC526668096004BCB46 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 186B2C2B26667F110052F99F /* Foundation.framework */; };
+		18695AC7266681FD004BCB46 /* AVFAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 186B2C2926667EFF0052F99F /* AVFAudio.framework */; };
+		18695ACD26668494004BCB46 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18695ACC26668494004BCB46 /* UIKit.framework */; };
+		18695ACF266684B7004BCB46 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18695ACE266684B7004BCB46 /* SystemConfiguration.framework */; };
+		18695AF62666A3BA004BCB46 /* ChunksUploadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18695AF52666A3BA004BCB46 /* ChunksUploadManager.swift */; };
+		18695B0A2666A3CB004BCB46 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18695AF82666A3CB004BCB46 /* Roboto-Medium.ttf */; };
+		18695B0B2666A3CB004BCB46 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18695AF92666A3CB004BCB46 /* Roboto-Light.ttf */; };
+		18695B0C2666A3CB004BCB46 /* RobotoCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18695AFA2666A3CB004BCB46 /* RobotoCondensed-Bold.ttf */; };
+		18695B0D2666A3CB004BCB46 /* RobotoCondensed-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18695AFB2666A3CB004BCB46 /* RobotoCondensed-Light.ttf */; };
+		18695B0E2666A3CB004BCB46 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18695AFC2666A3CB004BCB46 /* Roboto-Regular.ttf */; };
+		18695B0F2666A3CB004BCB46 /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18695AFD2666A3CB004BCB46 /* Roboto-MediumItalic.ttf */; };
+		18695B102666A3CB004BCB46 /* RobotoCondensed-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18695AFE2666A3CB004BCB46 /* RobotoCondensed-Italic.ttf */; };
+		18695B112666A3CB004BCB46 /* RobotoCondensed-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18695AFF2666A3CB004BCB46 /* RobotoCondensed-BoldItalic.ttf */; };
+		18695B122666A3CB004BCB46 /* RobotoCondensed-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18695B002666A3CB004BCB46 /* RobotoCondensed-LightItalic.ttf */; };
+		18695B132666A3CB004BCB46 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18695B012666A3CB004BCB46 /* Roboto-ThinItalic.ttf */; };
+		18695B142666A3CB004BCB46 /* RobotoCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18695B022666A3CB004BCB46 /* RobotoCondensed-Regular.ttf */; };
+		18695B152666A3CB004BCB46 /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18695B032666A3CB004BCB46 /* Roboto-BoldItalic.ttf */; };
+		18695B162666A3CB004BCB46 /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18695B042666A3CB004BCB46 /* Roboto-LightItalic.ttf */; };
+		18695B172666A3CB004BCB46 /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18695B052666A3CB004BCB46 /* Roboto-Italic.ttf */; };
+		18695B182666A3CB004BCB46 /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18695B062666A3CB004BCB46 /* Roboto-BlackItalic.ttf */; };
+		18695B192666A3CB004BCB46 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18695B072666A3CB004BCB46 /* Roboto-Bold.ttf */; };
+		18695B1A2666A3CB004BCB46 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18695B082666A3CB004BCB46 /* Roboto-Thin.ttf */; };
+		18695B1B2666A3CB004BCB46 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18695B092666A3CB004BCB46 /* Roboto-Black.ttf */; };
+		18695B1F2666A3DB004BCB46 /* ArcView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18695B1D2666A3DB004BCB46 /* ArcView.swift */; };
+		18695B202666A3DB004BCB46 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18695B1E2666A3DB004BCB46 /* GradientView.swift */; };
+		18695B232666A432004BCB46 /* ScreenRecordingPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18695B222666A432004BCB46 /* ScreenRecordingPopUpVC.swift */; };
+		18695B262666A43D004BCB46 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18695B252666A43D004BCB46 /* NotificationManager.swift */; };
 		186B2BC2266667A10052F99F /* ProctortrackSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 186B2BC0266667A10052F99F /* ProctortrackSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		186B2BF0266669670052F99F /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B2BEF266669670052F99F /* Utility.swift */; };
+		186B2BF32666697B0052F99F /* FrameworkServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B2BF22666697B0052F99F /* FrameworkServices.swift */; };
+		186B2BF6266669880052F99F /* FrameworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B2BF5266669880052F99F /* FrameworkManager.swift */; };
+		186B2BFB26666A430052F99F /* Framework.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 186B2BFA26666A430052F99F /* Framework.storyboard */; };
+		186B2C0126666A8E0052F99F /* SystemCheckVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B2BFD26666A8E0052F99F /* SystemCheckVC.swift */; };
+		186B2C0226666A8E0052F99F /* DiskStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B2BFF26666A8E0052F99F /* DiskStatus.swift */; };
+		186B2C0326666A8E0052F99F /* SystemCheckAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B2C0026666A8E0052F99F /* SystemCheckAlertView.swift */; };
+		186B2C0526666ABC0052F99F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B2C0426666ABC0052F99F /* Constants.swift */; };
+		186B2C0726666B2D0052F99F /* NetworkingClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B2C0626666B2D0052F99F /* NetworkingClass.swift */; };
+		186B2C0926666CA40052F99F /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B2C0826666CA40052F99F /* Reachability.swift */; };
+		186B2C0B26666DFD0052F99F /* UtilityClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B2C0A26666DFD0052F99F /* UtilityClass.swift */; };
+		186B2C0D26666E840052F99F /* NetworkSpeedTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B2C0C26666E840052F99F /* NetworkSpeedTest.swift */; };
+		186B2C13266671940052F99F /* help_id_scan1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 186B2C0F266671940052F99F /* help_id_scan1.jpg */; };
+		186B2C14266671940052F99F /* face_scan.png in Resources */ = {isa = PBXBuildFile; fileRef = 186B2C10266671940052F99F /* face_scan.png */; };
+		186B2C15266671940052F99F /* upload.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 186B2C11266671940052F99F /* upload.jpg */; };
+		186B2C16266671940052F99F /* help_id_scan.png in Resources */ = {isa = PBXBuildFile; fileRef = 186B2C12266671940052F99F /* help_id_scan.png */; };
+		187E5B33266E3F98004169F0 /* VerificationCompletedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187E5B32266E3F98004169F0 /* VerificationCompletedVC.swift */; };
+		18B2761E267CD4C9009D9AA8 /* Firestore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B2761D267CD4C9009D9AA8 /* Firestore.swift */; };
+		18CE729B2668E398003C60EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18CE729A2668E397003C60EF /* Assets.xcassets */; };
+		18D684A9266A6B8F00E77B62 /* RoomScanApprovalProcessingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D684A5266A6B8F00E77B62 /* RoomScanApprovalProcessingVC.swift */; };
+		18D684AA266A6B8F00E77B62 /* RoomScanNewOverlayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D684A6266A6B8F00E77B62 /* RoomScanNewOverlayVC.swift */; };
+		18D684AB266A6B8F00E77B62 /* RoomScanResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D684A7266A6B8F00E77B62 /* RoomScanResultVC.swift */; };
+		18D684AC266A6B8F00E77B62 /* RoomScanNewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D684A8266A6B8F00E77B62 /* RoomScanNewVC.swift */; };
+		18D684AE266A6C1100E77B62 /* WebRTC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18D684AD266A6C1100E77B62 /* WebRTC.framework */; };
+		18D684AF266A6C1100E77B62 /* WebRTC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18D684AD266A6C1100E77B62 /* WebRTC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		18D684BE266A71DD00E77B62 /* ConferenceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D684B2266A71DD00E77B62 /* ConferenceClient.swift */; };
+		18D684BF266A71DD00E77B62 /* AntMediaClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D684B3266A71DD00E77B62 /* AntMediaClient.swift */; };
+		18D684C0266A71DD00E77B62 /* AntMediaError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D684B4266A71DD00E77B62 /* AntMediaError.swift */; };
+		18D684C1266A71DD00E77B62 /* AntMediaClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D684B5266A71DD00E77B62 /* AntMediaClientProtocol.swift */; };
+		18D684C2266A71DD00E77B62 /* AntMediaClientDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D684B6266A71DD00E77B62 /* AntMediaClientDelegate.swift */; };
+		18D684C3266A71DD00E77B62 /* RTCCustomFrameCapturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D684B8266A71DD00E77B62 /* RTCCustomFrameCapturer.swift */; };
+		18D684C4266A71DD00E77B62 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D684B9266A71DD00E77B62 /* Config.swift */; };
+		18D684C5266A71DD00E77B62 /* WebRTCClientDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D684BA266A71DD00E77B62 /* WebRTCClientDelegate.swift */; };
+		18D684C6266A71DD00E77B62 /* WebRTCClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D684BB266A71DD00E77B62 /* WebRTCClient.swift */; };
+		18D684C7266A71DD00E77B62 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D684BC266A71DD00E77B62 /* Dictionary.swift */; };
+		18D684C8266A71DD00E77B62 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D684BD266A71DD00E77B62 /* String.swift */; };
+		18DDE63C2667DA6900901796 /* FaceScanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DDE6372667DA6900901796 /* FaceScanVC.swift */; };
+		18DDE63D2667DA6900901796 /* FaceScanOverlayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DDE6382667DA6900901796 /* FaceScanOverlayVC.swift */; };
+		18DDE63E2667DA6900901796 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DDE63A2667DA6900901796 /* LoadingView.swift */; };
+		18DDE63F2667DA6900901796 /* FaceScanResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DDE63B2667DA6900901796 /* FaceScanResultVC.swift */; };
+		18DDE6462667DA7700901796 /* IDScanResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DDE6412667DA7700901796 /* IDScanResultVC.swift */; };
+		18DDE6472667DA7700901796 /* SwiftySwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DDE6432667DA7700901796 /* SwiftySwitch.swift */; };
+		18DDE6482667DA7700901796 /* IDScanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DDE6442667DA7700901796 /* IDScanVC.swift */; };
+		18DDE6492667DA7700901796 /* IDScanOverlayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DDE6452667DA7700901796 /* IDScanOverlayVC.swift */; };
+		18DDE64C2667DDB200901796 /* IdentityVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DDE64B2667DDB200901796 /* IdentityVerificationVC.swift */; };
+		FD4DE9BC333C7D46D31ECCB4 /* Pods_ProctortrackSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0EA68E77F40E4FAB67F7129 /* Pods_ProctortrackSDK.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		18D684B0266A6C1100E77B62 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				18D684AF266A6C1100E77B62 /* WebRTC.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		181627232670EDBF00C273FF /* LiveMonitoring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveMonitoring.swift; sourceTree = "<group>"; };
+		18685791266A767500C01286 /* Starscream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Starscream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		18685794266A77A400C01286 /* Starscream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Starscream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		18695ACC26668494004BCB46 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		18695ACE266684B7004BCB46 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		18695AF52666A3BA004BCB46 /* ChunksUploadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChunksUploadManager.swift; sourceTree = "<group>"; };
+		18695AF82666A3CB004BCB46 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		18695AF92666A3CB004BCB46 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		18695AFA2666A3CB004BCB46 /* RobotoCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Bold.ttf"; sourceTree = "<group>"; };
+		18695AFB2666A3CB004BCB46 /* RobotoCondensed-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Light.ttf"; sourceTree = "<group>"; };
+		18695AFC2666A3CB004BCB46 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		18695AFD2666A3CB004BCB46 /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
+		18695AFE2666A3CB004BCB46 /* RobotoCondensed-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Italic.ttf"; sourceTree = "<group>"; };
+		18695AFF2666A3CB004BCB46 /* RobotoCondensed-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-BoldItalic.ttf"; sourceTree = "<group>"; };
+		18695B002666A3CB004BCB46 /* RobotoCondensed-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-LightItalic.ttf"; sourceTree = "<group>"; };
+		18695B012666A3CB004BCB46 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
+		18695B022666A3CB004BCB46 /* RobotoCondensed-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Regular.ttf"; sourceTree = "<group>"; };
+		18695B032666A3CB004BCB46 /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
+		18695B042666A3CB004BCB46 /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
+		18695B052666A3CB004BCB46 /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Italic.ttf"; sourceTree = "<group>"; };
+		18695B062666A3CB004BCB46 /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
+		18695B072666A3CB004BCB46 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		18695B082666A3CB004BCB46 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		18695B092666A3CB004BCB46 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
+		18695B1D2666A3DB004BCB46 /* ArcView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcView.swift; sourceTree = "<group>"; };
+		18695B1E2666A3DB004BCB46 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		18695B222666A432004BCB46 /* ScreenRecordingPopUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenRecordingPopUpVC.swift; sourceTree = "<group>"; };
+		18695B252666A43D004BCB46 /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		186B2BBD266667A10052F99F /* ProctortrackSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ProctortrackSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		186B2BC0266667A10052F99F /* ProctortrackSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProctortrackSDK.h; sourceTree = "<group>"; };
 		186B2BC1266667A10052F99F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		186B2BEF266669670052F99F /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		186B2BF22666697B0052F99F /* FrameworkServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameworkServices.swift; sourceTree = "<group>"; };
+		186B2BF5266669880052F99F /* FrameworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameworkManager.swift; sourceTree = "<group>"; };
+		186B2BFA26666A430052F99F /* Framework.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Framework.storyboard; sourceTree = "<group>"; };
+		186B2BFD26666A8E0052F99F /* SystemCheckVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemCheckVC.swift; sourceTree = "<group>"; };
+		186B2BFF26666A8E0052F99F /* DiskStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiskStatus.swift; sourceTree = "<group>"; };
+		186B2C0026666A8E0052F99F /* SystemCheckAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemCheckAlertView.swift; sourceTree = "<group>"; };
+		186B2C0426666ABC0052F99F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		186B2C0626666B2D0052F99F /* NetworkingClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingClass.swift; sourceTree = "<group>"; };
+		186B2C0826666CA40052F99F /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		186B2C0A26666DFD0052F99F /* UtilityClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilityClass.swift; sourceTree = "<group>"; };
+		186B2C0C26666E840052F99F /* NetworkSpeedTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkSpeedTest.swift; sourceTree = "<group>"; };
+		186B2C0F266671940052F99F /* help_id_scan1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = help_id_scan1.jpg; sourceTree = "<group>"; };
+		186B2C10266671940052F99F /* face_scan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = face_scan.png; sourceTree = "<group>"; };
+		186B2C11266671940052F99F /* upload.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = upload.jpg; sourceTree = "<group>"; };
+		186B2C12266671940052F99F /* help_id_scan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help_id_scan.png; sourceTree = "<group>"; };
+		186B2C2426667C580052F99F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		186B2C2926667EFF0052F99F /* AVFAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFAudio.framework; path = System/Library/Frameworks/AVFAudio.framework; sourceTree = SDKROOT; };
+		186B2C2B26667F110052F99F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		187E5B32266E3F98004169F0 /* VerificationCompletedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerificationCompletedVC.swift; sourceTree = "<group>"; };
+		18B2761D267CD4C9009D9AA8 /* Firestore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firestore.swift; sourceTree = "<group>"; };
+		18BE4CA72667F23B000D5483 /* CheckBoxBlank-g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CheckBoxBlank-g.png"; sourceTree = "<group>"; };
+		18CE729A2668E397003C60EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		18D684A5266A6B8F00E77B62 /* RoomScanApprovalProcessingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomScanApprovalProcessingVC.swift; sourceTree = "<group>"; };
+		18D684A6266A6B8F00E77B62 /* RoomScanNewOverlayVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomScanNewOverlayVC.swift; sourceTree = "<group>"; };
+		18D684A7266A6B8F00E77B62 /* RoomScanResultVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomScanResultVC.swift; sourceTree = "<group>"; };
+		18D684A8266A6B8F00E77B62 /* RoomScanNewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomScanNewVC.swift; sourceTree = "<group>"; };
+		18D684AD266A6C1100E77B62 /* WebRTC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebRTC.framework; sourceTree = "<group>"; };
+		18D684B2266A71DD00E77B62 /* ConferenceClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConferenceClient.swift; sourceTree = "<group>"; };
+		18D684B3266A71DD00E77B62 /* AntMediaClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AntMediaClient.swift; sourceTree = "<group>"; };
+		18D684B4266A71DD00E77B62 /* AntMediaError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AntMediaError.swift; sourceTree = "<group>"; };
+		18D684B5266A71DD00E77B62 /* AntMediaClientProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AntMediaClientProtocol.swift; sourceTree = "<group>"; };
+		18D684B6266A71DD00E77B62 /* AntMediaClientDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AntMediaClientDelegate.swift; sourceTree = "<group>"; };
+		18D684B8266A71DD00E77B62 /* RTCCustomFrameCapturer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RTCCustomFrameCapturer.swift; sourceTree = "<group>"; };
+		18D684B9266A71DD00E77B62 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		18D684BA266A71DD00E77B62 /* WebRTCClientDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebRTCClientDelegate.swift; sourceTree = "<group>"; };
+		18D684BB266A71DD00E77B62 /* WebRTCClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebRTCClient.swift; sourceTree = "<group>"; };
+		18D684BC266A71DD00E77B62 /* Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
+		18D684BD266A71DD00E77B62 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		18DDE6372667DA6900901796 /* FaceScanVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceScanVC.swift; sourceTree = "<group>"; };
+		18DDE6382667DA6900901796 /* FaceScanOverlayVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceScanOverlayVC.swift; sourceTree = "<group>"; };
+		18DDE63A2667DA6900901796 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		18DDE63B2667DA6900901796 /* FaceScanResultVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceScanResultVC.swift; sourceTree = "<group>"; };
+		18DDE6412667DA7700901796 /* IDScanResultVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDScanResultVC.swift; sourceTree = "<group>"; };
+		18DDE6432667DA7700901796 /* SwiftySwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftySwitch.swift; sourceTree = "<group>"; };
+		18DDE6442667DA7700901796 /* IDScanVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDScanVC.swift; sourceTree = "<group>"; };
+		18DDE6452667DA7700901796 /* IDScanOverlayVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDScanOverlayVC.swift; sourceTree = "<group>"; };
+		18DDE64B2667DDB200901796 /* IdentityVerificationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentityVerificationVC.swift; sourceTree = "<group>"; };
+		60DEBEAC246E8AEDDD83EA63 /* Pods-ProctortrackSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProctortrackSDK.debug.xcconfig"; path = "Target Support Files/Pods-ProctortrackSDK/Pods-ProctortrackSDK.debug.xcconfig"; sourceTree = "<group>"; };
+		A28BC568DB02DC3ED9A9902E /* Pods-ProctortrackSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProctortrackSDK.release.xcconfig"; path = "Target Support Files/Pods-ProctortrackSDK/Pods-ProctortrackSDK.release.xcconfig"; sourceTree = "<group>"; };
+		F0EA68E77F40E4FAB67F7129 /* Pods_ProctortrackSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProctortrackSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -21,17 +189,92 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18695ACD26668494004BCB46 /* UIKit.framework in Frameworks */,
+				18695ACF266684B7004BCB46 /* SystemConfiguration.framework in Frameworks */,
+				18695AC7266681FD004BCB46 /* AVFAudio.framework in Frameworks */,
+				18695AC526668096004BCB46 /* Foundation.framework in Frameworks */,
+				18695AC326668094004BCB46 /* AVFoundation.framework in Frameworks */,
+				18D684AE266A6C1100E77B62 /* WebRTC.framework in Frameworks */,
+				FD4DE9BC333C7D46D31ECCB4 /* Pods_ProctortrackSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		181627222670ED7400C273FF /* Monitoring */ = {
+			isa = PBXGroup;
+			children = (
+				181627232670EDBF00C273FF /* LiveMonitoring.swift */,
+			);
+			path = Monitoring;
+			sourceTree = "<group>";
+		};
+		18695AF42666A3BA004BCB46 /* ChunkUploadManager */ = {
+			isa = PBXGroup;
+			children = (
+				18695AF52666A3BA004BCB46 /* ChunksUploadManager.swift */,
+			);
+			path = ChunkUploadManager;
+			sourceTree = "<group>";
+		};
+		18695AF72666A3CB004BCB46 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				18695AF82666A3CB004BCB46 /* Roboto-Medium.ttf */,
+				18695AF92666A3CB004BCB46 /* Roboto-Light.ttf */,
+				18695AFA2666A3CB004BCB46 /* RobotoCondensed-Bold.ttf */,
+				18695AFB2666A3CB004BCB46 /* RobotoCondensed-Light.ttf */,
+				18695AFC2666A3CB004BCB46 /* Roboto-Regular.ttf */,
+				18695AFD2666A3CB004BCB46 /* Roboto-MediumItalic.ttf */,
+				18695AFE2666A3CB004BCB46 /* RobotoCondensed-Italic.ttf */,
+				18695AFF2666A3CB004BCB46 /* RobotoCondensed-BoldItalic.ttf */,
+				18695B002666A3CB004BCB46 /* RobotoCondensed-LightItalic.ttf */,
+				18695B012666A3CB004BCB46 /* Roboto-ThinItalic.ttf */,
+				18695B022666A3CB004BCB46 /* RobotoCondensed-Regular.ttf */,
+				18695B032666A3CB004BCB46 /* Roboto-BoldItalic.ttf */,
+				18695B042666A3CB004BCB46 /* Roboto-LightItalic.ttf */,
+				18695B052666A3CB004BCB46 /* Roboto-Italic.ttf */,
+				18695B062666A3CB004BCB46 /* Roboto-BlackItalic.ttf */,
+				18695B072666A3CB004BCB46 /* Roboto-Bold.ttf */,
+				18695B082666A3CB004BCB46 /* Roboto-Thin.ttf */,
+				18695B092666A3CB004BCB46 /* Roboto-Black.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		18695B1C2666A3DB004BCB46 /* GradientView */ = {
+			isa = PBXGroup;
+			children = (
+				18695B1D2666A3DB004BCB46 /* ArcView.swift */,
+				18695B1E2666A3DB004BCB46 /* GradientView.swift */,
+			);
+			path = GradientView;
+			sourceTree = "<group>";
+		};
+		18695B212666A432004BCB46 /* ScreenRecordingPopUp */ = {
+			isa = PBXGroup;
+			children = (
+				18695B222666A432004BCB46 /* ScreenRecordingPopUpVC.swift */,
+			);
+			path = ScreenRecordingPopUp;
+			sourceTree = "<group>";
+		};
+		18695B242666A43D004BCB46 /* NotificationManager */ = {
+			isa = PBXGroup;
+			children = (
+				18695B252666A43D004BCB46 /* NotificationManager.swift */,
+			);
+			path = NotificationManager;
+			sourceTree = "<group>";
+		};
 		186B2BB3266667A10052F99F = {
 			isa = PBXGroup;
 			children = (
 				186B2BBF266667A10052F99F /* ProctortrackSDK */,
 				186B2BBE266667A10052F99F /* Products */,
+				186B2C2326667C580052F99F /* Frameworks */,
+				5C3982F77C4F2B81F14A0B68 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -46,10 +289,237 @@
 		186B2BBF266667A10052F99F /* ProctortrackSDK */ = {
 			isa = PBXGroup;
 			children = (
+				186B2BED2666691F0052F99F /* PT Base Classes */,
 				186B2BC0266667A10052F99F /* ProctortrackSDK.h */,
 				186B2BC1266667A10052F99F /* Info.plist */,
 			);
 			path = ProctortrackSDK;
+			sourceTree = "<group>";
+		};
+		186B2BED2666691F0052F99F /* PT Base Classes */ = {
+			isa = PBXGroup;
+			children = (
+				18B2761C267CD48A009D9AA8 /* Firebase */,
+				18D684B1266A71DD00E77B62 /* api */,
+				186B2BEE266669670052F99F /* Framework Utility */,
+				186B2BF12666697B0052F99F /* Framework Services */,
+				186B2BF4266669880052F99F /* Framework Manager */,
+				186B2BFC26666A8E0052F99F /* SystemCheck */,
+				18DDE64A2667DDB200901796 /* IdentificationVerification */,
+				18DDE6362667DA6900901796 /* FaceScan */,
+				18DDE6402667DA7700901796 /* Id Scan */,
+				18D684A3266A6B8F00E77B62 /* Room Scan */,
+				187E5B31266E3F98004169F0 /* VerificationCompleted */,
+				181627222670ED7400C273FF /* Monitoring */,
+				186B2BF926666A430052F99F /* Storyboard */,
+				186B2C0E266671940052F99F /* Images */,
+				18CE729A2668E397003C60EF /* Assets.xcassets */,
+				186B2C0426666ABC0052F99F /* Constants.swift */,
+			);
+			path = "PT Base Classes";
+			sourceTree = "<group>";
+		};
+		186B2BEE266669670052F99F /* Framework Utility */ = {
+			isa = PBXGroup;
+			children = (
+				186B2BEF266669670052F99F /* Utility.swift */,
+				186B2C0A26666DFD0052F99F /* UtilityClass.swift */,
+				186B2C0626666B2D0052F99F /* NetworkingClass.swift */,
+				186B2C0826666CA40052F99F /* Reachability.swift */,
+				186B2C0C26666E840052F99F /* NetworkSpeedTest.swift */,
+				18695AF42666A3BA004BCB46 /* ChunkUploadManager */,
+				18695AF72666A3CB004BCB46 /* Fonts */,
+				18695B1C2666A3DB004BCB46 /* GradientView */,
+				18695B212666A432004BCB46 /* ScreenRecordingPopUp */,
+				18695B242666A43D004BCB46 /* NotificationManager */,
+			);
+			path = "Framework Utility";
+			sourceTree = "<group>";
+		};
+		186B2BF12666697B0052F99F /* Framework Services */ = {
+			isa = PBXGroup;
+			children = (
+				186B2BF22666697B0052F99F /* FrameworkServices.swift */,
+			);
+			path = "Framework Services";
+			sourceTree = "<group>";
+		};
+		186B2BF4266669880052F99F /* Framework Manager */ = {
+			isa = PBXGroup;
+			children = (
+				186B2BF5266669880052F99F /* FrameworkManager.swift */,
+			);
+			path = "Framework Manager";
+			sourceTree = "<group>";
+		};
+		186B2BF926666A430052F99F /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				186B2BFA26666A430052F99F /* Framework.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		186B2BFC26666A8E0052F99F /* SystemCheck */ = {
+			isa = PBXGroup;
+			children = (
+				186B2BFD26666A8E0052F99F /* SystemCheckVC.swift */,
+				186B2BFE26666A8E0052F99F /* DiskStatus */,
+				186B2C0026666A8E0052F99F /* SystemCheckAlertView.swift */,
+			);
+			path = SystemCheck;
+			sourceTree = "<group>";
+		};
+		186B2BFE26666A8E0052F99F /* DiskStatus */ = {
+			isa = PBXGroup;
+			children = (
+				186B2BFF26666A8E0052F99F /* DiskStatus.swift */,
+			);
+			path = DiskStatus;
+			sourceTree = "<group>";
+		};
+		186B2C0E266671940052F99F /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				18BE4CA72667F23B000D5483 /* CheckBoxBlank-g.png */,
+				186B2C0F266671940052F99F /* help_id_scan1.jpg */,
+				186B2C10266671940052F99F /* face_scan.png */,
+				186B2C11266671940052F99F /* upload.jpg */,
+				186B2C12266671940052F99F /* help_id_scan.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		186B2C2326667C580052F99F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				18685794266A77A400C01286 /* Starscream.framework */,
+				18685791266A767500C01286 /* Starscream.framework */,
+				18D684AD266A6C1100E77B62 /* WebRTC.framework */,
+				18695ACE266684B7004BCB46 /* SystemConfiguration.framework */,
+				18695ACC26668494004BCB46 /* UIKit.framework */,
+				186B2C2B26667F110052F99F /* Foundation.framework */,
+				186B2C2926667EFF0052F99F /* AVFAudio.framework */,
+				186B2C2426667C580052F99F /* AVFoundation.framework */,
+				F0EA68E77F40E4FAB67F7129 /* Pods_ProctortrackSDK.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		187E5B31266E3F98004169F0 /* VerificationCompleted */ = {
+			isa = PBXGroup;
+			children = (
+				187E5B32266E3F98004169F0 /* VerificationCompletedVC.swift */,
+			);
+			path = VerificationCompleted;
+			sourceTree = "<group>";
+		};
+		18B2761C267CD48A009D9AA8 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				18B2761D267CD4C9009D9AA8 /* Firestore.swift */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		18D684A3266A6B8F00E77B62 /* Room Scan */ = {
+			isa = PBXGroup;
+			children = (
+				18D684A4266A6B8F00E77B62 /* New Room Scan UI */,
+			);
+			path = "Room Scan";
+			sourceTree = "<group>";
+		};
+		18D684A4266A6B8F00E77B62 /* New Room Scan UI */ = {
+			isa = PBXGroup;
+			children = (
+				18D684A5266A6B8F00E77B62 /* RoomScanApprovalProcessingVC.swift */,
+				18D684A6266A6B8F00E77B62 /* RoomScanNewOverlayVC.swift */,
+				18D684A7266A6B8F00E77B62 /* RoomScanResultVC.swift */,
+				18D684A8266A6B8F00E77B62 /* RoomScanNewVC.swift */,
+			);
+			path = "New Room Scan UI";
+			sourceTree = "<group>";
+		};
+		18D684B1266A71DD00E77B62 /* api */ = {
+			isa = PBXGroup;
+			children = (
+				18D684B2266A71DD00E77B62 /* ConferenceClient.swift */,
+				18D684B3266A71DD00E77B62 /* AntMediaClient.swift */,
+				18D684B4266A71DD00E77B62 /* AntMediaError.swift */,
+				18D684B5266A71DD00E77B62 /* AntMediaClientProtocol.swift */,
+				18D684B6266A71DD00E77B62 /* AntMediaClientDelegate.swift */,
+				18D684B7266A71DD00E77B62 /* webrtc */,
+			);
+			path = api;
+			sourceTree = "<group>";
+		};
+		18D684B7266A71DD00E77B62 /* webrtc */ = {
+			isa = PBXGroup;
+			children = (
+				18D684B8266A71DD00E77B62 /* RTCCustomFrameCapturer.swift */,
+				18D684B9266A71DD00E77B62 /* Config.swift */,
+				18D684BA266A71DD00E77B62 /* WebRTCClientDelegate.swift */,
+				18D684BB266A71DD00E77B62 /* WebRTCClient.swift */,
+				18D684BC266A71DD00E77B62 /* Dictionary.swift */,
+				18D684BD266A71DD00E77B62 /* String.swift */,
+			);
+			path = webrtc;
+			sourceTree = "<group>";
+		};
+		18DDE6362667DA6900901796 /* FaceScan */ = {
+			isa = PBXGroup;
+			children = (
+				18DDE6372667DA6900901796 /* FaceScanVC.swift */,
+				18DDE6382667DA6900901796 /* FaceScanOverlayVC.swift */,
+				18DDE6392667DA6900901796 /* LoaderView */,
+				18DDE63B2667DA6900901796 /* FaceScanResultVC.swift */,
+			);
+			path = FaceScan;
+			sourceTree = "<group>";
+		};
+		18DDE6392667DA6900901796 /* LoaderView */ = {
+			isa = PBXGroup;
+			children = (
+				18DDE63A2667DA6900901796 /* LoadingView.swift */,
+			);
+			path = LoaderView;
+			sourceTree = "<group>";
+		};
+		18DDE6402667DA7700901796 /* Id Scan */ = {
+			isa = PBXGroup;
+			children = (
+				18DDE6412667DA7700901796 /* IDScanResultVC.swift */,
+				18DDE6422667DA7700901796 /* SwitchView */,
+				18DDE6442667DA7700901796 /* IDScanVC.swift */,
+				18DDE6452667DA7700901796 /* IDScanOverlayVC.swift */,
+			);
+			path = "Id Scan";
+			sourceTree = "<group>";
+		};
+		18DDE6422667DA7700901796 /* SwitchView */ = {
+			isa = PBXGroup;
+			children = (
+				18DDE6432667DA7700901796 /* SwiftySwitch.swift */,
+			);
+			path = SwitchView;
+			sourceTree = "<group>";
+		};
+		18DDE64A2667DDB200901796 /* IdentificationVerification */ = {
+			isa = PBXGroup;
+			children = (
+				18DDE64B2667DDB200901796 /* IdentityVerificationVC.swift */,
+			);
+			path = IdentificationVerification;
+			sourceTree = "<group>";
+		};
+		5C3982F77C4F2B81F14A0B68 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				60DEBEAC246E8AEDDD83EA63 /* Pods-ProctortrackSDK.debug.xcconfig */,
+				A28BC568DB02DC3ED9A9902E /* Pods-ProctortrackSDK.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -70,10 +540,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 186B2BC5266667A10052F99F /* Build configuration list for PBXNativeTarget "ProctortrackSDK" */;
 			buildPhases = (
+				1E04418575F5C755172F14D7 /* [CP] Check Pods Manifest.lock */,
 				186B2BB8266667A10052F99F /* Headers */,
 				186B2BB9266667A10052F99F /* Sources */,
 				186B2BBA266667A10052F99F /* Frameworks */,
 				186B2BBB266667A10052F99F /* Resources */,
+				18D684B0266A6C1100E77B62 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -120,16 +592,108 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18695B152666A3CB004BCB46 /* Roboto-BoldItalic.ttf in Resources */,
+				18695B112666A3CB004BCB46 /* RobotoCondensed-BoldItalic.ttf in Resources */,
+				186B2C16266671940052F99F /* help_id_scan.png in Resources */,
+				18695B0E2666A3CB004BCB46 /* Roboto-Regular.ttf in Resources */,
+				18695B192666A3CB004BCB46 /* Roboto-Bold.ttf in Resources */,
+				186B2C13266671940052F99F /* help_id_scan1.jpg in Resources */,
+				18695B102666A3CB004BCB46 /* RobotoCondensed-Italic.ttf in Resources */,
+				18695B0F2666A3CB004BCB46 /* Roboto-MediumItalic.ttf in Resources */,
+				18695B1A2666A3CB004BCB46 /* Roboto-Thin.ttf in Resources */,
+				18695B0C2666A3CB004BCB46 /* RobotoCondensed-Bold.ttf in Resources */,
+				18695B1B2666A3CB004BCB46 /* Roboto-Black.ttf in Resources */,
+				18695B0D2666A3CB004BCB46 /* RobotoCondensed-Light.ttf in Resources */,
+				18695B182666A3CB004BCB46 /* Roboto-BlackItalic.ttf in Resources */,
+				18695B0A2666A3CB004BCB46 /* Roboto-Medium.ttf in Resources */,
+				186B2BFB26666A430052F99F /* Framework.storyboard in Resources */,
+				186B2C15266671940052F99F /* upload.jpg in Resources */,
+				18695B132666A3CB004BCB46 /* Roboto-ThinItalic.ttf in Resources */,
+				18695B122666A3CB004BCB46 /* RobotoCondensed-LightItalic.ttf in Resources */,
+				18695B162666A3CB004BCB46 /* Roboto-LightItalic.ttf in Resources */,
+				18695B0B2666A3CB004BCB46 /* Roboto-Light.ttf in Resources */,
+				18695B172666A3CB004BCB46 /* Roboto-Italic.ttf in Resources */,
+				18695B142666A3CB004BCB46 /* RobotoCondensed-Regular.ttf in Resources */,
+				18CE729B2668E398003C60EF /* Assets.xcassets in Resources */,
+				186B2C14266671940052F99F /* face_scan.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1E04418575F5C755172F14D7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ProctortrackSDK-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		186B2BB9266667A10052F99F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18DDE64C2667DDB200901796 /* IdentityVerificationVC.swift in Sources */,
+				186B2BF32666697B0052F99F /* FrameworkServices.swift in Sources */,
+				18DDE6472667DA7700901796 /* SwiftySwitch.swift in Sources */,
+				186B2BF0266669670052F99F /* Utility.swift in Sources */,
+				18695B1F2666A3DB004BCB46 /* ArcView.swift in Sources */,
+				18D684C6266A71DD00E77B62 /* WebRTCClient.swift in Sources */,
+				186B2C0126666A8E0052F99F /* SystemCheckVC.swift in Sources */,
+				18DDE6462667DA7700901796 /* IDScanResultVC.swift in Sources */,
+				18695B202666A3DB004BCB46 /* GradientView.swift in Sources */,
+				186B2C0B26666DFD0052F99F /* UtilityClass.swift in Sources */,
+				18695B262666A43D004BCB46 /* NotificationManager.swift in Sources */,
+				18D684C2266A71DD00E77B62 /* AntMediaClientDelegate.swift in Sources */,
+				18DDE63C2667DA6900901796 /* FaceScanVC.swift in Sources */,
+				18D684AA266A6B8F00E77B62 /* RoomScanNewOverlayVC.swift in Sources */,
+				18695B232666A432004BCB46 /* ScreenRecordingPopUpVC.swift in Sources */,
+				186B2C0D26666E840052F99F /* NetworkSpeedTest.swift in Sources */,
+				18DDE6482667DA7700901796 /* IDScanVC.swift in Sources */,
+				18D684C5266A71DD00E77B62 /* WebRTCClientDelegate.swift in Sources */,
+				18D684AC266A6B8F00E77B62 /* RoomScanNewVC.swift in Sources */,
+				18DDE6492667DA7700901796 /* IDScanOverlayVC.swift in Sources */,
+				186B2C0326666A8E0052F99F /* SystemCheckAlertView.swift in Sources */,
+				18DDE63D2667DA6900901796 /* FaceScanOverlayVC.swift in Sources */,
+				18D684C8266A71DD00E77B62 /* String.swift in Sources */,
+				18B2761E267CD4C9009D9AA8 /* Firestore.swift in Sources */,
+				186B2C0526666ABC0052F99F /* Constants.swift in Sources */,
+				187E5B33266E3F98004169F0 /* VerificationCompletedVC.swift in Sources */,
+				18D684C1266A71DD00E77B62 /* AntMediaClientProtocol.swift in Sources */,
+				18D684AB266A6B8F00E77B62 /* RoomScanResultVC.swift in Sources */,
+				18D684A9266A6B8F00E77B62 /* RoomScanApprovalProcessingVC.swift in Sources */,
+				18D684BE266A71DD00E77B62 /* ConferenceClient.swift in Sources */,
+				18DDE63F2667DA6900901796 /* FaceScanResultVC.swift in Sources */,
+				18D684C3266A71DD00E77B62 /* RTCCustomFrameCapturer.swift in Sources */,
+				181627242670EDBF00C273FF /* LiveMonitoring.swift in Sources */,
+				18D684C7266A71DD00E77B62 /* Dictionary.swift in Sources */,
+				186B2C0926666CA40052F99F /* Reachability.swift in Sources */,
+				18695AF62666A3BA004BCB46 /* ChunksUploadManager.swift in Sources */,
+				18D684C4266A71DD00E77B62 /* Config.swift in Sources */,
+				186B2C0226666A8E0052F99F /* DiskStatus.swift in Sources */,
+				18D684C0266A71DD00E77B62 /* AntMediaError.swift in Sources */,
+				186B2C0726666B2D0052F99F /* NetworkingClass.swift in Sources */,
+				18DDE63E2667DA6900901796 /* LoadingView.swift in Sources */,
+				18D684BF266A71DD00E77B62 /* AntMediaClient.swift in Sources */,
+				186B2BF6266669880052F99F /* FrameworkManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,15 +824,23 @@
 		};
 		186B2BC6266667A10052F99F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 60DEBEAC246E8AEDDD83EA63 /* Pods-ProctortrackSDK.debug.xcconfig */;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = SNHZD6TJE6;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = ProctortrackSDK/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -277,22 +849,33 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.verificient.ProctortrackSDK;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Debug;
 		};
 		186B2BC7266667A10052F99F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A28BC568DB02DC3ED9A9902E /* Pods-ProctortrackSDK.release.xcconfig */;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = SNHZD6TJE6;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = ProctortrackSDK/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -301,8 +884,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.verificient.ProctortrackSDK;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Release;
 		};

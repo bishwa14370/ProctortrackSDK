@@ -6,13 +6,9 @@
 //  Copyright © 2017 Diwakar Garg. All rights reserved.
 //
 import UIKit
-import CoreBluetooth
-import QuartzCore
-import CoreTelephony
 import AVFoundation
-import WebKit
 
-class SystemCheckVC: UIViewController, CBCentralManagerDelegate, CBPeripheralDelegate
+class SystemCheckVC: UIViewController
 {
     @IBOutlet weak var internetHeightConstraint: NSLayoutConstraint!
     // IBoutlet of label and Images for System check
@@ -37,15 +33,15 @@ class SystemCheckVC: UIViewController, CBCentralManagerDelegate, CBPeripheralDel
     @IBOutlet weak var systemCircleImage: UIImageView!
     @IBOutlet weak var systemImage: UIImageView!
     @IBOutlet weak var systemLabel: UILabel!
-  //  @IBOutlet weak var desktopAppCircleImage: UIImageView!
-  //  @IBOutlet weak var desktopAppImage: UIImageView!
-  //  @IBOutlet weak var desktopAppLabel: UILabel!
+    //  @IBOutlet weak var desktopAppCircleImage: UIImageView!
+    //  @IBOutlet weak var desktopAppImage: UIImageView!
+    //  @IBOutlet weak var desktopAppLabel: UILabel!
     
     
     @IBOutlet weak var alertView: SystemCheckAlertView!
     //Variable declartion for the bluetooth
-    var centralManager: CBCentralManager!
-    var peripheral: CBPeripheral!
+    //  var centralManager: CBCentralManager!
+    //  var peripheral: CBPeripheral!
     var batteryCheckInSystemCheck:Bool = false
     var customAlert : Bool = false
     var internetAccessLoad : Bool = false
@@ -53,14 +49,16 @@ class SystemCheckVC: UIViewController, CBCentralManagerDelegate, CBPeripheralDel
     var navigationBarTitle : UILabel?
     private var initialSpacing: CGFloat!
     private var chatView: UIView!
-    private var supportWebView = WKWebView()
-    private var proctorWebView = WKWebView()
+    //  private var supportWebView = WKWebView()
+    //  private var proctorWebView = WKWebView()
     private var supportButton = UIButton()
     private var proctorButton = UIButton()
     
     //View Did Load function
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
         if(kibanaLogEnable == true)
         {
             let finalMessage = kibanaPrefix + "event:System_check_Start"
@@ -87,26 +85,14 @@ class SystemCheckVC: UIViewController, CBCentralManagerDelegate, CBPeripheralDel
         // Register to receive notification
         
         NotificationCenter.default.addObserver(self, selector: #selector(SystemCheckVC.receiveNotificationAction), name: NSNotification.Name(rawValue: startButtonClickNotificationSystemCheck), object: nil)
-        
-        //ScreenrecordingHandling
-        if(screenRecordingStopEnable)
-        {
-            if #available(iOS 11.0, *) {
-                addObserverForScreenRecording()
-            } else {
-                // Fallback on earlier versions
-            }
-        }
+        NotificationCenter.default.addObserver(self, selector: #selector(rotated), name: UIDevice.orientationDidChangeNotification, object: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
-        if(kibanaLogEnable == true)
-        {
+        if(kibanaLogEnable == true) {
             let finalMessage = kibanaPrefix + "event:System_check_end"
             NetworkingClass.submitKibanaLogApiCallFromNative(message: finalMessage, level: kibanaLevelName)
-            
         }
     }
     
@@ -137,115 +123,8 @@ class SystemCheckVC: UIViewController, CBCentralManagerDelegate, CBPeripheralDel
         }
     }
     
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if keyPath == "title" {
-            if let title = proctorWebView.title {
-                if title != "0" && title.count > 0 {
-                    self.chatView.subviews[1].isHidden = false
-                }
-            }
-        }
-    }
-    
-    private func setupPanGestureForChatView() {
-        var panGestureForChatView = UIPanGestureRecognizer()
-        panGestureForChatView = UIPanGestureRecognizer(target: self, action: #selector(draggedView))
-        self.chatView.isUserInteractionEnabled = true
-        self.chatView.addGestureRecognizer(panGestureForChatView)
-    }
-    
-    private func setupChatView() {
-        let window:UIWindow = UIApplication.shared.keyWindow!
-        self.chatView = UIView(frame: CGRect(x: 20, y: 100, width: 270, height: 400))
-        window.addSubview(self.chatView)
-        let topView = UIView(frame: CGRect(x: 0, y: 0, width: 270, height: 60))
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
-        button.setImage(UIImage(named: "chatMessage"), for: .normal)
-        button.addTarget(self, action: #selector(didSelectButton), for: .touchUpInside)
-        topView.addSubview(button)
-        self.chatView.addSubview(topView)
-        let bottomView = UIView(frame: CGRect(x: 0, y: 60, width: 270, height: 340))
-        let buttonView = UIView(frame: CGRect(x: 0, y: 0, width: 270, height: 40))
-        supportButton = UIButton(frame: CGRect(x: 20, y: 10, width: 100, height: 30))
-        supportButton.setTitle("Support", for: .normal)
-        supportButton.setImage(UIImage(named: "support"), for: .normal)
-        supportButton.imageEdgeInsets.left = -5
-        supportButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 12)
-        supportButton.addTarget(self, action: #selector(didSelectSupportButton), for: .touchUpInside)
-        supportButton.layer.cornerRadius = 5.0
-        supportButton.backgroundColor = .systemBlue
-        buttonView.addSubview(supportButton)
-        proctorButton = UIButton(frame: CGRect(x: 150, y: 10, width: 100, height: 30))
-        proctorButton.setTitle("Proctor", for: .normal)
-        proctorButton.setImage(UIImage(named: "proctor"), for: .normal)
-        proctorButton.imageEdgeInsets.left = -5
-        proctorButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 12)
-        proctorButton.addTarget(self, action: #selector(didSelectProctorButton), for: .touchUpInside)
-        proctorButton.layer.cornerRadius = 5.0
-        proctorButton.backgroundColor = .gray
-        buttonView.addSubview(proctorButton)
-        bottomView.addSubview(buttonView)
-        
-        supportWebView = WKWebView(frame: CGRect(x: 0, y: 50, width: 270, height: 290))
-        bottomView.addSubview(supportWebView)
-        
-        proctorWebView = WKWebView(frame: CGRect(x: 0, y: 50, width: 270, height: 290))
-        bottomView.addSubview(proctorWebView)
-        proctorWebView.isHidden = true
-        
-        bottomView.isHidden = true
-        self.chatView.addSubview(bottomView)
-        
-        if let loadUrl = URL(string: baseUrlForFreshHire + "/614e76646a34302518395604/support/freshchat/") {
-            var request = URLRequest(url: loadUrl)
-            request.httpShouldHandleCookies = true
-            supportWebView.load(request)
-        }
-        
-        if let loadUrl = URL(string: chatUrl) {
-            var request = URLRequest(url: loadUrl)
-            request.httpShouldHandleCookies = true
-            proctorWebView.load(request)
-        }
-    }
-    
-    @objc func didSelectSupportButton() {
-        proctorWebView.isHidden = true
-        supportWebView.isHidden = false
-        supportButton.backgroundColor = .systemBlue
-        proctorButton.backgroundColor = .gray
-    }
-    
-    @objc func didSelectProctorButton() {
-        supportWebView.isHidden = true
-        proctorWebView.isHidden = false
-        proctorButton.backgroundColor = .systemBlue
-        supportButton.backgroundColor = .gray
-    }
-    
-    @objc func didSelectButton() {
-        if self.chatView.subviews[1].isHidden == true {
-            UIView.animate(withDuration: 0.6, delay: 0, options: .curveEaseInOut, animations: {
-                self.chatView.subviews[1].isHidden = false
-            })
-        }
-        else {
-            UIView.animate(withDuration: 0.6, delay: 0, options: .curveEaseInOut, animations: {
-                self.chatView.subviews[1].isHidden = true
-            })
-        }
-    }
-    
-    @objc func draggedView(_ sender:UIPanGestureRecognizer) {
-        if (self.view.frame.contains(chatView.frame)) {
-            let oldCenter = self.chatView.center
-            let translation = sender.translation(in: self.view)
-            chatView.center = CGPoint(x: chatView.center.x + translation.x, y: chatView.center.y + translation.y)
-            sender.setTranslation(CGPoint.zero, in: self.view)
-            if (!self.view.frame.contains(chatView.frame)) {
-                chatView.center = oldCenter
-            }
-        }
+    @objc private func rotated() {
+        UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
     }
     
     //Network related method
@@ -307,6 +186,7 @@ class SystemCheckVC: UIViewController, CBCentralManagerDelegate, CBPeripheralDel
         self.navigationController?.navigationBar.layer.shadowRadius = 3.0
         self.navigationController?.navigationBar.layer.shadowOpacity = 1.0
         self.navigationController?.navigationBar.layer.masksToBounds = false
+        self.navigationController?.navigationBar.barTintColor = .systemBlue
         
         let customView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: self.view.frame.width - 100, height: (self.navigationController?.navigationBar.frame.size.height)!))
         navigationBarTitle = UILabel(frame: CGRect(x: 0, y: 0.0, width: self.view.frame.width , height: customView.frame.height))
@@ -436,29 +316,29 @@ class SystemCheckVC: UIViewController, CBCentralManagerDelegate, CBPeripheralDel
         //code for image hiding
         normalImageViewImage(image: cameraCircleImage)
         normalImageViewImage(image: microphoneCircleImage)
-     //   normalImageViewImage(image: bluetoothCircleImage)
+        //   normalImageViewImage(image: bluetoothCircleImage)
         normalImageViewImage(image: internetCircleImage)
         normalImageViewImage(image: storageCircleImage)
         normalImageViewImage(image: batteryCircleImage)
         normalImageViewImage(image: systemCircleImage)
-    //    normalImageViewImage(image: desktopAppCircleImage)
+        //    normalImageViewImage(image: desktopAppCircleImage)
         normalImageViewImage(image: cameraImage)
         normalImageViewImage(image: microphoneImage)
-     //   normalImageViewImage(image: bluetoothImage)
+        //   normalImageViewImage(image: bluetoothImage)
         normalImageViewImage(image: internetImage)
         normalImageViewImage(image: storageImage)
         normalImageViewImage(image: batteryImage)
         normalImageViewImage(image: systemImage)
-    //    normalImageViewImage(image: desktopAppImage)
+        //    normalImageViewImage(image: desktopAppImage)
         //Code for label hiding
         defaultLabelText(label: cameraLabel)
         defaultLabelText(label: microphoneLabel)
-    //    defaultLabelText(label: bluetoothLabel)
+        //    defaultLabelText(label: bluetoothLabel)
         defaultLabelText(label: internetLabel)
         defaultLabelText(label: storageLabel)
         defaultLabelText(label: batteryLabel)
         defaultLabelText(label: systemLabel)
-    //    defaultLabelText(label: desktopAppLabel)
+        //    defaultLabelText(label: desktopAppLabel)
     }
     
     
@@ -473,7 +353,7 @@ class SystemCheckVC: UIViewController, CBCentralManagerDelegate, CBPeripheralDel
         hideImageView(image: storageCircleImage)
         hideImageView(image: batteryCircleImage)
         hideImageView(image: systemCircleImage)
-     //   hideImageView(image: desktopAppCircleImage)
+        //   hideImageView(image: desktopAppCircleImage)
         hideImageView(image: cameraImage)
         hideImageView(image: microphoneImage)
         hideImageView(image: bluetoothImage)
@@ -481,7 +361,7 @@ class SystemCheckVC: UIViewController, CBCentralManagerDelegate, CBPeripheralDel
         hideImageView(image: storageImage)
         hideImageView(image: batteryImage)
         hideImageView(image: systemImage)
-     //   hideImageView(image: desktopAppImage)
+        //   hideImageView(image: desktopAppImage)
         
         //Code for label hiding
         hideLabel(label: cameraLabel)
@@ -491,7 +371,7 @@ class SystemCheckVC: UIViewController, CBCentralManagerDelegate, CBPeripheralDel
         hideLabel(label: storageLabel)
         hideLabel(label: batteryLabel)
         hideLabel(label: systemLabel)
-      //  hideLabel(label: desktopAppLabel)
+        //  hideLabel(label: desktopAppLabel)
     }
     
     func hideLabel(label:UILabel)
@@ -530,26 +410,26 @@ class SystemCheckVC: UIViewController, CBCentralManagerDelegate, CBPeripheralDel
         //code for image showing
         showImageView(image: cameraCircleImage)
         showImageView(image: microphoneCircleImage)
-      //  showImageView(image: bluetoothCircleImage)
+        //  showImageView(image: bluetoothCircleImage)
         showImageView(image: storageCircleImage)
         showImageView(image: batteryCircleImage)
         showImageView(image: systemCircleImage)
-     //   showImageView(image: desktopAppCircleImage)
+        //   showImageView(image: desktopAppCircleImage)
         showImageView(image: cameraImage)
         showImageView(image: microphoneImage)
-      //  showImageView(image: bluetoothImage)
+        //  showImageView(image: bluetoothImage)
         showImageView(image: storageImage)
         showImageView(image: batteryImage)
         showImageView(image: systemImage)
-     //   showImageView(image: desktopAppImage)
+        //   showImageView(image: desktopAppImage)
         //Code for label showing
         showLabel(label: cameraLabel)
         showLabel(label: microphoneLabel)
-      //  showLabel(label: bluetoothLabel)
+        //  showLabel(label: bluetoothLabel)
         showLabel(label: storageLabel)
         showLabel(label: batteryLabel)
         showLabel(label: systemLabel)
-      //  showLabel(label: desktopAppLabel)
+        //  showLabel(label: desktopAppLabel)
         self.cameraCircleImage.blinkImage()
         
         self.highlightImageViewImage(image: cameraCircleImage)
@@ -600,9 +480,9 @@ class SystemCheckVC: UIViewController, CBCentralManagerDelegate, CBPeripheralDel
                                 break
                                 
                             case .pad:
-                                self.setupChatView()
-                                self.setupPanGestureForChatView()
-                                self.proctorWebView.addObserver(self, forKeyPath: #keyPath(WKWebView.title), options: .new, context: nil)
+                                //  self.setupChatView()
+                                //  self.setupPanGestureForChatView()
+                                //   self.proctorWebView.addObserver(self, forKeyPath: #keyPath(WKWebView.title), options: .new, context: nil)
                                 break
                                 
                             case .unspecified:
@@ -612,6 +492,8 @@ class SystemCheckVC: UIViewController, CBCentralManagerDelegate, CBPeripheralDel
                                 break
                                 
                             case .carPlay:
+                                break
+                            case .mac:
                                 break
                             @unknown default:
                                 break
@@ -753,17 +635,15 @@ class SystemCheckVC: UIViewController, CBCentralManagerDelegate, CBPeripheralDel
                                             UserDefaults.standard.set(liveMonitoringStreamID, forKey: monitoringStramId)
                                         }
                                     }
-                                   if let monitoring_mobile_token = streamUrls["monitoring_mobile_token"] as? [String:Any], let token = monitoring_mobile_token["stream_token"] as? String {
+                                    if let monitoring_mobile_token = streamUrls["monitoring_mobile_token"] as? [String:Any], let token = monitoring_mobile_token["stream_token"] as? String {
                                         liveStreamingTokenID = token
                                         UserDefaults.standard.set(liveStreamingTokenID, forKey: liveStreamingToken)
                                     }
                                 }
                             }
                         }
-                      
+                        
                         if let autoRenamingEnabled = testData["is_stream_auto_renaming_enabled"] as? Bool {
-                            complition(true)
-                          /*
                             is_stream_auto_renaming_enabled = autoRenamingEnabled
                             UserDefaults.standard.set(is_stream_auto_renaming_enabled, forKey: streamAutoRenamingKey)
                             
@@ -775,16 +655,14 @@ class SystemCheckVC: UIViewController, CBCentralManagerDelegate, CBPeripheralDel
                                             FirestoreDB.shared.signUpWithFirebaseToken(auth_token: token) {[weak self] (success, message) in
                                                 if self != nil {
                                                     if success {
-                                                        if(kibanaLogEnable == true)
-                                                        {
+                                                        if(kibanaLogEnable == true) {
                                                             let finalMessage = "signUpWithFirebaseToken success:" + message
                                                             NetworkingClass.submitKibanaLogApiCallFromNative(message: finalMessage, level: kibanaLevelName)
                                                         }
                                                         complition(true)
                                                     }
                                                     else {
-                                                        if(kibanaLogEnable == true)
-                                                        {
+                                                        if(kibanaLogEnable == true) {
                                                             let finalMessage = "signUpWithFirebaseToken failed:" + message
                                                             NetworkingClass.submitKibanaLogApiCallFromNative(message: finalMessage, level: kibanaLevelName)
                                                         }
@@ -802,7 +680,7 @@ class SystemCheckVC: UIViewController, CBCentralManagerDelegate, CBPeripheralDel
                             else {
                                 complition(true)
                             }
-                         */
+                            
                         }
                         else {
                             complition(true)
@@ -958,7 +836,7 @@ class SystemCheckVC: UIViewController, CBCentralManagerDelegate, CBPeripheralDel
                 }
             })
         @unknown default:
-             break
+            break
         }
     }
     
@@ -970,20 +848,12 @@ class SystemCheckVC: UIViewController, CBCentralManagerDelegate, CBPeripheralDel
             self.highlightImageViewImage(image: self.microphoneImage)
             self.changeLabelText(label: self.microphoneLabel)
         }
-        
-      //  let options = [CBCentralManagerOptionShowPowerAlertKey:0] //<-this is the magic bit!
-      //  centralManager = CBCentralManager(delegate: self, queue: nil, options: options)
         self.updateBluetoothAndMicroPhoneStaus()
     }
     
     //Update status
     func updateBluetoothAndMicroPhoneStaus()
     {
-        // alert(title: "BlueTooth Status", message: "It is Off now")
-    //    highlightImageViewImage(image: bluetoothCircleImage)
-    //    highlightImageViewImage(image: bluetoothImage)
-    //    changeLabelText(label: bluetoothLabel)
-        
         DispatchQueue.main.async {
             self.highlightImageViewImage(image: self.internetCircleImage)
             self.internetCircleImage.blinkImage()
@@ -1001,146 +871,6 @@ class SystemCheckVC: UIViewController, CBCentralManagerDelegate, CBPeripheralDel
             self.highlightImageViewImage(image: self.storageImage)
             self.changeLabelText(label: self.storageLabel)
             self.updateDiskStatus()
-        }
-    }
-    
-    //Core function for checking the bluetooth status
-    func centralManagerDidUpdateState(_ central: CBCentralManager) {
-        if #available(iOS 10.0, *){
-            switch (central.state) {
-            case CBManagerState.poweredOff:
-                
-                if(bluetoothAccessScreen)
-                {
-                    self.updateBluetoothAndMicroPhoneStaus()
-                    if self.presentedViewController == nil
-                    {
-                        print("Alert not load")
-                    }
-                    else
-                    {
-                        self.dismiss(animated: true, completion: nil)
-                    }
-                }
-                
-                if(kibanaLogEnable == true){
-                    let finalMessage = kibanaPrefix + "event:Bluetooth is off"
-                    NetworkingClass.submitKibanaLogApiCallFromNative(message: finalMessage, level: kibanaLevelName)
-                }
-                
-            case CBManagerState.unauthorized:
-                alertPromptToAllowCameraAccessViaSettings(title: bluetoothAlertTitle, message: bluetoothAccessRequestMessage)
-            case CBManagerState.unknown:
-                print("CBCentralManagerState.Unknown")
-                if(bluetoothAccessScreen)
-                {
-                    self.updateBluetoothAndMicroPhoneStaus()
-                }
-                break
-            case CBManagerState.poweredOn:
-                print("CBCentralManagerState.PoweredOn")
-                if (is_bluetooth_check_required) {
-                    if freshHire
-                    {
-                        self.errorImageViewImage(image: bluetoothCircleImage)
-                        self.errorImageViewImage(image: bluetoothImage)
-                        self.errorLabelText(label: bluetoothLabel)
-                        alertPromptToAllowCameraAccessViaSettings(title: freshHireBluetoothAlertTitle, message: blueToothAlertMessage)
-                    }
-                    else
-                    {
-                        self.errorImageViewImage(image: bluetoothCircleImage)
-                        self.errorImageViewImage(image: bluetoothImage)
-                        self.errorLabelText(label: bluetoothLabel)
-                        alertPromptToAllowCameraAccessViaSettings(title: proctorScreenBluetoothAlertTitle, message: blueToothAlertMessage)
-                    }
-                }
-                else {
-                    if(bluetoothAccessScreen)
-                    {
-                        self.updateBluetoothAndMicroPhoneStaus()
-                        if(kibanaLogEnable == true){
-                            let finalMessage = kibanaPrefix + "event:Bluetooth is on"
-                            NetworkingClass.submitKibanaLogApiCallFromNative(message: finalMessage, level: kibanaLevelName)
-                        }
-                    }
-                }
-            case CBManagerState.resetting:
-                print("CBCentralManagerState.Resetting")
-            case CBManagerState.unsupported:
-                print("CBCentralManagerState.Unsupported")
-                if(bluetoothAccessScreen)
-                {
-                    self.updateBluetoothAndMicroPhoneStaus()
-                }
-                break
-            }
-        }
-        else
-        {
-            switch central.state.rawValue{
-            case 0:
-                print("CBCentralManagerState.Unknown")
-                //For Simulator
-                if(bluetoothAccessScreen)
-                {
-                    self.updateBluetoothAndMicroPhoneStaus()
-                }
-                break
-            case 1:
-                print("CBCentralManagerState.Resetting")
-            case 2:
-                print("CBCentralManagerState.Unsupported")
-                if(bluetoothAccessScreen)
-                {
-                    self.updateBluetoothAndMicroPhoneStaus()
-                    if self.presentedViewController == nil
-                    {
-                        print("Alert not load")
-                    }
-                    else
-                    {
-                        self.dismiss(animated: true, completion: nil)
-                    }
-                }
-                break
-            case 3:
-                print("This app is not authorised to use Bluetooth low energy")
-                break
-            case 4:
-                print("Bluetooth is currently powered off.")
-                // alert(title: "BlueTooth Status", message: "It is Off now")
-                if(bluetoothAccessScreen)
-                {
-                    self.updateBluetoothAndMicroPhoneStaus()
-                    if self.presentedViewController == nil
-                    {
-                        print("Alert not load")
-                    }
-                    else
-                    {
-                        self.dismiss(animated: true, completion: nil)
-                    }
-                }
-            //Handle th enext function here
-            case 5:
-                print("Bluetooth is currently powered on and available to use.")
-                if freshHire
-                {
-                    self.errorImageViewImage(image: bluetoothCircleImage)
-                    self.errorImageViewImage(image: bluetoothImage)
-                    self.errorLabelText(label: bluetoothLabel)
-                    alertPromptToAllowCameraAccessViaSettings(title: freshHireBluetoothAlertTitle, message: blueToothAlertMessage)
-                }
-                else
-                {
-                    self.errorImageViewImage(image: bluetoothCircleImage)
-                    self.errorImageViewImage(image: bluetoothImage)
-                    self.errorLabelText(label: bluetoothLabel)
-                    alertPromptToAllowCameraAccessViaSettings(title: proctorScreenBluetoothAlertTitle, message: blueToothAlertMessage)
-                }
-            default:break
-            }
         }
     }
     
@@ -1412,24 +1142,9 @@ class SystemCheckVC: UIViewController, CBCentralManagerDelegate, CBPeripheralDel
             highlightImageViewImage(image: systemImage)
             changeLabelText(label: systemLabel)
             self.navigateToScreenAccordingToConfiguration()
-          //  self.checkDesktopAppConnectivity()
+            //  self.checkDesktopAppConnectivity()
         }
     }
-    //checkDesktop App
-//    func checkDesktopAppConnectivity()
-//    {
-//        self.desktopAppCircleImage.blinkImage()
-//        highlightImageViewImage(image: desktopAppCircleImage)
-//        highlightImageViewImage(image: desktopAppImage)
-//        changeLabelText(label: desktopAppLabel)
-//        //code for pinging the system desktop connectivity
-//        if (UtilityClass.isInternetAvailable())
-//        {
-//            self.desktopAppCircleImage.stopBlinkImage()
-//            self.navigateToScreenAccordingToConfiguration()
-//        }
-//
-//    }
     
     func navigateToScreenAccordingToConfiguration()
     {
@@ -1474,8 +1189,8 @@ class SystemCheckVC: UIViewController, CBCentralManagerDelegate, CBPeripheralDel
                 if((UserDefaults.standard.object(forKey:"identityVerificationStatus")) != nil)
                 {
                     //Bypass the view
-                    let moveVC = self.storyboard?.instantiateViewController(withIdentifier: roomScanViewController) as! RoomScanNewVC
-                    self.navigationController?.pushViewController(moveVC, animated: true)
+                    //  let moveVC = self.storyboard?.instantiateViewController(withIdentifier: roomScanViewController) as! RoomScanNewVC
+                    //  self.navigationController?.pushViewController(moveVC, animated: true)
                 }
                 else
                 {
@@ -1487,8 +1202,8 @@ class SystemCheckVC: UIViewController, CBCentralManagerDelegate, CBPeripheralDel
         }
         else
         {
-            let moveVC = self.storyboard?.instantiateViewController(withIdentifier: verificationCompletedScreen) as! VerificationCompletedVC
-            self.navigationController?.pushViewController(moveVC, animated: true)
+            //  let moveVC = self.storyboard?.instantiateViewController(withIdentifier: verificationCompletedScreen) as! VerificationCompletedVC
+            //  self.navigationController?.pushViewController(moveVC, animated: true)
         }
         
     }
@@ -1507,7 +1222,7 @@ class SystemCheckVC: UIViewController, CBCentralManagerDelegate, CBPeripheralDel
         }
         else {
             print("Error with task_info(): " +
-                (String(cString: mach_error_string(kerr), encoding: String.Encoding.ascii) ?? "unknown error"))
+                    (String(cString: mach_error_string(kerr), encoding: String.Encoding.ascii) ?? "unknown error"))
         }
     }
     
@@ -1611,7 +1326,7 @@ extension UIImageView {
                        options:[.autoreverse, .repeat],
                        animations: {
                         self.alpha = 0
-        }, completion: nil)
+                       }, completion: nil)
     }
     func stopBlinkImage() {
         alpha = 1

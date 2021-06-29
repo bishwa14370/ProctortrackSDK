@@ -13,7 +13,7 @@ var chunkNumber: String?
 
 
 class ChunksUploadManager {
- 
+    
     //Method for fetching the chunk from directory
     class func chunksListFromDirectory(completionHandler : @escaping (Bool) -> Void)
     {
@@ -38,7 +38,7 @@ class ChunksUploadManager {
     }
     
     //Chunk Uploding One by one request
-   class  func requestOneByOneChunkUpload(completionHandler : @escaping (Bool) -> Void)
+    class  func requestOneByOneChunkUpload(completionHandler : @escaping (Bool) -> Void)
     {
         if (directoryFilePathArray.count > 0)
         {
@@ -59,7 +59,7 @@ class ChunksUploadManager {
                     {
                         if(roomScanRequired == true && photoIdRequired == true && faceScanRequired == true)
                         {
-                             chunkNumber = "3"
+                            chunkNumber = "3"
                         }
                         else if(roomScanRequired == true && photoIdRequired == false && faceScanRequired == true)
                         {
@@ -71,35 +71,34 @@ class ChunksUploadManager {
                         }
                     }
                     else if ((getDirectoryPath() as NSString).appendingPathComponent((directoryFilePathArray[0]))).contains("InstitutionList") {
-                     //   SearchInstitutionServices.removeDirectory(directoryName: "InstitutionList")
+                        //   SearchInstitutionServices.removeDirectory(directoryName: "InstitutionList")
                     }
-                        self.requestForUploadUrl(fileSize: ((String(describing: videoData.length) as NSString) as String) as String, videoFileName:(((directoryFilePathArray[0]) as NSString) as String) as String, videoFile:videoData, filePath:(getDirectoryPath() as NSString).appendingPathComponent((directoryFilePathArray[0])) as NSString,completionHandler: {(success) in
+                    self.requestForUploadUrl(fileSize: ((String(describing: videoData.length) as NSString) as String) as String, videoFileName:(((directoryFilePathArray[0]) as NSString) as String) as String, videoFile:videoData, filePath:(getDirectoryPath() as NSString).appendingPathComponent((directoryFilePathArray[0])) as NSString,completionHandler: {(success) in
                         
-                                if(success){
-                                    completionHandler(true)
-                                }
-                            else
-                                {
-                                    completionHandler(false)
-                            }
-                        })
+                        if(success){
+                            completionHandler(true)
+                        }
+                        else
+                        {
+                            completionHandler(false)
+                        }
+                    })
                 } catch
                 {
                     print(error)
-                     completionHandler(false)
+                    completionHandler(false)
                 }
                 
             }
         }
         else
         {
-             completionHandler(false)
+            completionHandler(false)
         }
-        
     }
     
     //Function for Chcek extension
-   class func fileExtension(filename: String) -> String {
+    class func fileExtension(filename: String) -> String {
         if let fileExtension = NSURL(fileURLWithPath: filename).pathExtension {
             return fileExtension
         } else {
@@ -108,13 +107,12 @@ class ChunksUploadManager {
     }
     
     //Method for request url and upload video (facescan and monitoring)
-   class func requestForUploadUrl(fileSize:String, videoFileName:String, videoFile:NSData, filePath:NSString, completionHandler : @escaping (Bool) -> Void)
-    {
+    class func requestForUploadUrl(fileSize:String, videoFileName:String, videoFile:NSData, filePath:NSString, completionHandler : @escaping (Bool) -> Void) {
         var parameters = [String : AnyObject]()
-       
+        
         if ((videoFileName) == (faceScanVideoName + "." + videoExtension))
         {
-             parameters[formatParameter] = videoExtension as AnyObject
+            parameters[formatParameter] = videoExtension as AnyObject
             parameters[typeParameter] = faceScanVideoName as AnyObject
             
             if(faceScanRequired == true)
@@ -124,28 +122,28 @@ class ChunksUploadManager {
         }
         else  if ((videoFileName) == (idScanImageName + "." + imageExtension))
         {
-             parameters[formatParameter] = imageExtension as AnyObject
+            parameters[formatParameter] = imageExtension as AnyObject
             parameters[typeParameter] = idScanImageName as AnyObject
             if(photoIdRequired == true && faceScanRequired == true)
             {
-                 parameters[chunkNumberParameter] = "2" as AnyObject
+                parameters[chunkNumberParameter] = "2" as AnyObject
             }
             else if(photoIdRequired == true && faceScanRequired == false)
             {
-                 parameters[chunkNumberParameter] = "1" as AnyObject
+                parameters[chunkNumberParameter] = "1" as AnyObject
             }
         }
         else  if ((videoFileName) == (roomScanVideoName + "." + videoExtension))
         {
-             parameters[formatParameter] = videoExtension as AnyObject
+            parameters[formatParameter] = videoExtension as AnyObject
             parameters[typeParameter] = roomScanVideoName as AnyObject
             if(roomScanRequired == true && photoIdRequired == true && faceScanRequired == true)
             {
-                 parameters[chunkNumberParameter] = "3" as AnyObject
+                parameters[chunkNumberParameter] = "3" as AnyObject
             }
             else if(roomScanRequired == true && photoIdRequired == false && faceScanRequired == true)
             {
-                 parameters[chunkNumberParameter] = "2" as AnyObject
+                parameters[chunkNumberParameter] = "2" as AnyObject
             }
             else if(roomScanRequired == true && photoIdRequired == false && faceScanRequired == false)
             {
@@ -159,7 +157,7 @@ class ChunksUploadManager {
         }
         else
         {
-             parameters[formatParameter] = videoExtension as AnyObject
+            parameters[formatParameter] = videoExtension as AnyObject
             parameters[typeParameter] = monitoring as AnyObject
             parameters[chunkNumberParameter] = chunkNumber as AnyObject
         }
@@ -197,39 +195,4 @@ class ChunksUploadManager {
             }
         }
     }
-    
-    //Image upload Method
-    class func requestForUploadImage(completionHandler : @escaping (_ success: Bool) -> Void)-> Void
-    {
-        var parameters = [String : String]()
-        parameters[typeParameter] = "dl"
-        parameters[isApprovedParameter] = "false"
-        parameters[statusParameter] = manualCheckRequiredParameter
-        parameters[isDeviceParameter] = "true"
-        parameters[testsession_id] = UserDefaults.standard.string(forKey: testsession_id)
-        let imageData = UIImage (contentsOfFile: (getDirectoryPath() as NSString).appendingPathComponent(idScanImageName + "." + imageExtension))!.jpegData(compressionQuality: 1)
-        
-        let url: String
-        if (freshHire ==  true)
-        {
-            url = idScanUrlRequestForUploadForFreshHire
-        }
-        else
-        {
-            url = idScanUrlRequestForUploadForProctorScreen
-        }
-        
-            NetworkingClass.idScanUploadRequest(uploadUrl: url,imageData:imageData!,  parameters: parameters, reuestForURLCompletionHandler: { (success) in
-                
-                if success
-                {
-                    completionHandler(true)
-                }
-                else
-                {
-                    completionHandler(false)
-                }
-            })
-    }
-
 }

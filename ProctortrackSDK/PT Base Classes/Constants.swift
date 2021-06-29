@@ -2,16 +2,8 @@
 //  Constants.swift
 //   ProctorTrack
 //
-//  Created by Diwakar Garg on 28/01/2019.
-//  Copyright © 2017 Diwakar Garg. All rights reserved.
-// 9055 Lines of code
 
-
-import Foundation
-import AVFoundation
-import AssetsLibrary
 import UIKit
-import WebKit
 
 var offline:Bool = false // true means offline mode is active
 let freshHire:Bool = true
@@ -43,11 +35,11 @@ var chunkCount: Int = 0
 
 //constant view for the scans which we are going to use
 var faceScanRequired : Bool = false
-var photoIdRequired: Bool = false
+var photoIdRequired: Bool = true
 var roomScanRequired:Bool =  false
 var liveRoomScanRequired:Bool =  false
 var liveRoomScanRequiredWithOldUI:Bool =  false
-var liveMonitoringScanRequired:Bool =  false
+var liveMonitoringScanRequired:Bool =  true
 var monitoringWithLocalChunkRequired:Bool =  false
 
 var streamUrls : Dictionary<String,Any> = [:]
@@ -97,7 +89,7 @@ var requires_id_scan_verification: Bool = false
 
 //ProctorScreen parameters
 let institutionKey = "institute"
-let processPool = WKProcessPool()
+//let processPool = WKProcessPool()
 var chatUrl = ""
 let kioskModeKey = "kioskModeEnabled"
 let screenRecordingKey = "screenRecordingEnabled"
@@ -824,123 +816,6 @@ func checkTimeStamp(date: String!) -> Bool {
         return false
     }
 }
-
-
-func sendSocketConnection(socketMessage:String) -> Bool
-{
- 
-    if #available(iOS 12.0, *) {
-        //call the send data udp
-        sendUDP(socketMessage)
-        
-        if(kibanaLogEnable == true)
-            {
-                let finalMessage = kibanaPrefix +  "event:notify_desktop_app_upd" + seprator + "signal:\(socketMessage)"
-                NetworkingClass.submitKibanaLogApiCallFromNative(message: finalMessage, level: kibanaLevelName)
-        }
-          return true
-    } else {
-        // Fallback on earlier versions
-         return false
-    }
-}
-//    func receivedSocketConnection() -> String
-//    {
-//        let ip = getIFAddresses().last!.ip
-//        let netmask = getIFAddresses().last!.netmask
-//        print("Value of the ip",ip)
-//        print("Value of the netmask",netmask)
-//
-//            var client_2: UDPClient?
-//            do {
-//                
-//                try client_2 = UDPClient(name:ip, port: 5118, otherIPAddress:ip, otherPort: 5118)
-//            }
-//            catch {
-//                
-//                print(error.localizedDescription)
-//            }
-//            do {
-//                
-//                try client_2!.beginOperation()
-//            }
-//            catch {
-//                
-//                print(error.localizedDescription)
-//            }
-//            
-//            // hold up...
-//            Thread.sleep(forTimeInterval: 2.0)
-//            // print first message
-//            if let msg = client_2!.getMessage() {
-//                
-//                print("got something: " + msg)
-//                return msg
-//            }
-//            else
-//            {
-//                return "0"
-//            }
-//    }
-
-
-func callStatusOfDesktopApp(complition: @escaping (_ success: Bool) -> Void)
-{
-        var url: String?
-        //Check for Application Type
-        if (freshHire ==  true)
-        {
-            url = "\(baseUrlForFreshHire)\(desktopProctorStatusUrl)"
-        }
-        else
-        {
-            url = "\(baseUrlForProctorScreen)\(desktopProctorStatusUrl)"
-        }
-        NetworkingClass.checkProctorEndOnDeskTopApiCall(baseUrl: url!, reuestForURLCompletionHandler: { (success, response) in
-            if success
-            {
-                let status = response[statusResponse] as? String
-                let message = response[messageResponse] as? String
-                if (status == failedResponse)
-                {
-                    alert(title: alertTitle, message: message!)
-                    print("Request Sucess but value fail")
-                    UserDefaults.standard.set(false, forKey: desktopSessionStatus)
-                    complition(false)
-                }
-                else
-                {
-                    if(response["detail"] as? String == "Authentication credentials were not provided.")
-                    {
-                         UserDefaults.standard.set(false, forKey: desktopSessionStatus)
-                        complition(false)
-                    }
-                    else
-                    {
-
-                        if(nullToNil(value: response["ended_at"] as AnyObject?) != nil)
-                        {
-                            UserDefaults.standard.set(true, forKey: desktopSessionStatus)
-                             complition(true)
-                        }
-                        else
-                        {
-                            UserDefaults.standard.set(false, forKey: desktopSessionStatus)
-                             complition(false)
-                        }
-                       
-                    }
-                }
-            }
-            else
-            {
-                UserDefaults.standard.set(false, forKey: desktopSessionStatus)
-                print("Reuest Failed")
-                complition(false)
-            }
-    })
-}
-
 
 func nullToNil(value : AnyObject?) -> AnyObject? {
     if value is NSNull {

@@ -102,104 +102,19 @@ class IDScanResultVC: UIViewController {
             let finalMessage = kibanaPrefix + "event:id_scan_submit"
             NetworkingClass.submitKibanaLogApiCallFromNative(message: finalMessage, level: kibanaLevelName)
         }
-        
-        if(bypassScanUploadFlow == true) {
-//            if requires_id_scan_verification {
-//                self.navigateToIdVerificationScreen()
-//            }
-//            else {
-//                self.navigateToScreenAccordingToConfiguration()
-//            }
-            self.navigateToScreenAccordingToConfiguration()
-        }
-        else {
-            self.uploadingChunksInBackground()
-        }
+        self.navigateToScreenAccordingToConfiguration()
     }
-    
-//    private func navigateToIdVerificationScreen() {
-//        let moveVC = self.storyboard?.instantiateViewController(withIdentifier: "IDScanVerificationViewController") as! IDScanVerificationViewController
-//        self.navigationController?.pushViewController(moveVC, animated: true)
-//    }
     
     func navigateToScreenAccordingToConfiguration()
     {
-        if(roomScanRequired == true)
-        {
-            if(liveRoomScanRequired == true)
-            {
-                let moveVC = self.storyboard?.instantiateViewController(withIdentifier: roomScanViewController) as! RoomScanNewVC
-                self.navigationController?.pushViewController(moveVC, animated: true)
-            }
-            else
-            {
-                self.performSegue(withIdentifier: roomScanSegue, sender: self)
-            }
-            
+        if(roomScanRequired == true) {
+            self.performSegue(withIdentifier: roomScanSegue, sender: self)
         }
-        else
-        {
+        else {
             let moveVC = self.storyboard?.instantiateViewController(withIdentifier: verificationCompletedScreen) as! VerificationCompletedVC
             self.navigationController?.pushViewController(moveVC, animated: true)
         }
-        
     }
-    
-    
-    //UploadChunksInBackGround
-    func uploadingChunksInBackground()
-    {
-        let sendResponse = sendSocketConnection(socketMessage: UDP_CODE_UPLOAD_ID_SCAN_SUCCESS + "_" + UserDefaults.standard.string(forKey: testsession_id)!)
-        print("Pringt the response of the socket message send",UDP_CODE_UPLOAD_ID_SCAN_SUCCESS + "_" + UserDefaults.standard.string(forKey: testsession_id)!)
-        if sendResponse == false
-        {
-            print("UDP Message is not send for ID scan completed")
-            if(kibanaLogEnable == true)
-            {
-                NetworkingClass.submitKibanaLogApiCallFromNative(message: "Udp message not send for ID scan completed", level: kibanaLevelName)
-            }
-        }
-        else
-        {
-            if(kibanaLogEnable == true)
-            {
-                NetworkingClass.submitKibanaLogApiCallFromNative(message: UDP_CODE_UPLOAD_ID_SCAN_SUCCESS + "_" + UserDefaults.standard.string(forKey: testsession_id)!, level: kibanaLevelName)
-            }
-            print("UDP Message is send for ID scan completed")
-        }
-        
-        
-//         self.performSegue(withIdentifier: roomScanSegue, sender: self)
-//
-//        if (UtilityClass.isInternetAvailable())
-//        {
-            self.navigateToScreenAccordingToConfiguration()
-//            ChunksUploadManager.chunksListFromDirectory(completionHandler: {(success) in
-//                if(success)
-//                {
-//                    print("Uploading Success")
-//                }
-//                else
-//                {
-//                    print("Uploading Fail or nothing to upload")
-//                }
-//            })
-//        }else
-//        {
-//            alert(title: proctorTrackTitle , message: internetAccessAlertMessage)
-//        }
-    }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }
 
 extension String {

@@ -123,7 +123,8 @@ class RoomScanResultVC: UIViewController {
         videoPlayIcon = UIImageView (frame: CGRect(x: 0, y: 0, width: 40 , height: 40))
         videoPlayIcon.center.x = self.view.center.x
         videoPlayIcon.center = self.view.center
-        videoPlayIcon.image = UIImage(named: "VideoPlay-g")?.maskWithColor(color: appThemeColorCode)
+        videoPlayIcon.image = UIImage(named: "VideoPlay-g", in: Bundle(for: type(of: self)), compatibleWith: nil)?.maskWithColor(color: appThemeColorCode)
+    
  
         self.view.addSubview(videoPlayIcon)
         reScanButton.layer.cornerRadius = buttonRoundCornerValue
@@ -186,57 +187,8 @@ class RoomScanResultVC: UIViewController {
     }
     
     //UploadChunksInBackGround
-    func uploadingChunksInBackground()
-    {
-        let sendResponse = sendSocketConnection(socketMessage: UDP_CODE_UPLOAD_ROOM_SCAN_SUCCESS + "_" + UserDefaults.standard.string(forKey: testsession_id)!)
-        print("Pringt the response of the socket message send",UDP_CODE_UPLOAD_ROOM_SCAN_SUCCESS + "_" + UserDefaults.standard.string(forKey: testsession_id)!)
-        if sendResponse == false
-        {
-            print("UDP Message is not send for Room scan completed")
-            if(kibanaLogEnable == true)
-            {
-                NetworkingClass.submitKibanaLogApiCallFromNative(message: "Udp message not send for Room scan completed", level: kibanaLevelName)
-            }
-        }
-        else
-        {
-            if(kibanaLogEnable == true)
-            {
-                NetworkingClass.submitKibanaLogApiCallFromNative(message: UDP_CODE_UPLOAD_ROOM_SCAN_SUCCESS + "_" + UserDefaults.standard.string(forKey: testsession_id)!, level: kibanaLevelName)
-            }
-            print("UDP Message is send for Room scan completed")
-        }
-        
-        
+    func uploadingChunksInBackground() {
          self.performSegue(withIdentifier: verificationCompletedSegue, sender: self)
-        //code for uploading the files
-//        if (UtilityClass.isInternetAvailable())
-//        {
-//            ChunksUploadManager.chunksListFromDirectory(completionHandler: {(success) in
-//                if(success)
-//                {
-//                    print("Uploading Success")
-//                }
-//                else
-//                {
-//                    print("Uploading Fail or nothing to upload")
-//                }
-//            })
-//        }else
-//        {
-//            alert(title: proctorTrackTitle , message: internetAccessAlertMessage)
-//        }
-        
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
 }
 

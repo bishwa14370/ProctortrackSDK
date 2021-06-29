@@ -106,9 +106,8 @@ class IDScanOverlayVC: UIViewController {
         idScanImageView.layer.borderColor = appThemeColorCode.cgColor
         
         gotItButton.layer.cornerRadius = buttonRoundCornerValue
-        //Checkbox button handling
-        checkBoxButton.setImage(UIImage(named: "CheckBoxFilled-g"), for: .selected )
-        checkBoxButton.setImage(UIImage(named: "CheckBoxBlank-g"), for: .normal )
+        checkBoxButton.setImage(UIImage(named: "CheckBoxFilled-g", in: Bundle(for: type(of: self)), compatibleWith: nil), for: .selected)
+        checkBoxButton.setImage(UIImage(named: "CheckBoxBlank-g", in: Bundle(for: type(of: self)), compatibleWith: nil), for: .normal)
         if((UserDefaults.standard.object(forKey:"idScanChcekBoxStatus")) != nil)
         {
             checkBoxButton.isSelected = true

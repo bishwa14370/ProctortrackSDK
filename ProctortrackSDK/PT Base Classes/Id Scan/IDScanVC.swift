@@ -8,7 +8,6 @@
 
 import UIKit
 import AVFoundation
-import AssetsLibrary
 
 class IDScanVC: UIViewController,AVCaptureVideoDataOutputSampleBufferDelegate,IDScanOverlayDelegate,SwiftySwitchDelegate{
     var navigationBarTitle : UILabel?
@@ -108,37 +107,37 @@ class IDScanVC: UIViewController,AVCaptureVideoDataOutputSampleBufferDelegate,ID
         overLayImageView?.center.y = self.view.center.y
         if(deviceSize() ==  "X")
         {
-            overLayImageView?.image = UIImage(named: "IdFrameOverlay-HX")
+            overLayImageView?.image = UIImage(named: "IdFrameOverlay-HX", in: Bundle(for: type(of: self)), compatibleWith: nil)
         }
         else if(deviceSize() == "iPad 9.7")
         {
-            overLayImageView?.image = UIImage(named: "idFrameOverlayV9.7")
+            overLayImageView?.image = UIImage(named: "idFrameOverlayV9.7", in: Bundle(for: type(of: self)), compatibleWith: nil)
         }
         else if(deviceSize() == "iPad 10.2")
         {
-            overLayImageView?.image = UIImage(named: "idFrameOverlayV10.5")
+            overLayImageView?.image = UIImage(named: "idFrameOverlayV10.5", in: Bundle(for: type(of: self)), compatibleWith: nil)
         }
         else if(deviceSize() == "iPad 10.5")
         {
-            overLayImageView?.image = UIImage(named: "idFrameOverlayV10.5")
+            overLayImageView?.image = UIImage(named: "idFrameOverlayV10.5", in: Bundle(for: type(of: self)), compatibleWith: nil)
         }
         else if(deviceSize() == "iPad 11")
         {
-            overLayImageView?.image = UIImage(named: "idFrameOverlayV10.5")
+            overLayImageView?.image = UIImage(named: "idFrameOverlayV10.5", in: Bundle(for: type(of: self)), compatibleWith: nil)
         }
         else if(deviceSize() == "iPad 12.9")
         {
-            overLayImageView?.image = UIImage(named: "idFrameOverlayV12.9")
+            overLayImageView?.image = UIImage(named: "idFrameOverlayV12.9", in: Bundle(for: type(of: self)), compatibleWith: nil)
         }
         else
         {
-            overLayImageView?.image = UIImage(named: "IdFrameOverlay-H")
+            overLayImageView?.image = UIImage(named: "IdFrameOverlay-H", in: Bundle(for: type(of: self)), compatibleWith: nil)
         }
         
         overLayImageView?.isUserInteractionEnabled = true
         self.view.addSubview(overLayImageView!)
         
-        let image = UIImage(named: "Camera-P")
+        let image = UIImage(named: "Camera-P", in: Bundle(for: type(of: self)), compatibleWith: nil)
         let button = UIButton(frame: CGRect(x: 0,y: self.view.frame.height - 85 ,width: 30,height: 30))
         button.setImage(image?.maskWithColor(color: appThemeColorCode) as UIImage?, for: .normal)
         button.center.x = self.view.center.x
@@ -213,31 +212,31 @@ class IDScanVC: UIViewController,AVCaptureVideoDataOutputSampleBufferDelegate,ID
             switchView.isOn =  true
             if(deviceSize() ==  "X")
             {
-                overLayImageView?.image = UIImage(named: "IdFrameOverlay-HX")
+                overLayImageView?.image = UIImage(named: "IdFrameOverlay-HX", in: Bundle(for: type(of: self)), compatibleWith: nil)
             }
             else if(deviceSize() == "iPad 9.7")
             {
-                overLayImageView?.image = UIImage(named: "idFrameOverlayV9.7")
+                overLayImageView?.image = UIImage(named: "idFrameOverlayV9.7", in: Bundle(for: type(of: self)), compatibleWith: nil)
             }
             else if(deviceSize() == "iPad 10.2")
             {
-                overLayImageView?.image = UIImage(named: "idFrameOverlayV10.5")
+                overLayImageView?.image = UIImage(named: "idFrameOverlayV10.5", in: Bundle(for: type(of: self)), compatibleWith: nil)
             }
             else if(deviceSize() == "iPad 10.5")
             {
-                overLayImageView?.image = UIImage(named: "idFrameOverlayV10.5")
+                overLayImageView?.image = UIImage(named: "idFrameOverlayV10.5", in: Bundle(for: type(of: self)), compatibleWith: nil)
             }
             else if(deviceSize() == "iPad 11")
             {
-                overLayImageView?.image = UIImage(named: "idFrameOverlayV10.5")
+                overLayImageView?.image = UIImage(named: "idFrameOverlayV10.5", in: Bundle(for: type(of: self)), compatibleWith: nil)
             }
             else if(deviceSize() == "iPad 12.9")
             {
-                overLayImageView?.image = UIImage(named: "idFrameOverlayV12.9")
+                overLayImageView?.image = UIImage(named: "idFrameOverlayV12.9", in: Bundle(for: type(of: self)), compatibleWith: nil)
             }
             else
             {
-                overLayImageView?.image = UIImage(named: "IdFrameOverlay-H")
+                overLayImageView?.image = UIImage(named: "IdFrameOverlay-H", in: Bundle(for: type(of: self)), compatibleWith: nil)
             }
             horizontalLabel?.text = "Horizontal"
             horizontalLabel?.textColor = lightGreenColor
@@ -248,31 +247,31 @@ class IDScanVC: UIViewController,AVCaptureVideoDataOutputSampleBufferDelegate,ID
             switchView.isOn =  false
             if(deviceSize() ==  "X")
             {
-                overLayImageView?.image = UIImage(named: "IdFrameOverlayX")
+                overLayImageView?.image = UIImage(named: "IdFrameOverlayX", in: Bundle(for: type(of: self)), compatibleWith: nil)
             }
             else if(deviceSize() == "iPad 9.7")
             {
-                overLayImageView?.image = UIImage(named: "idFrameOverlayH9.7")
+                overLayImageView?.image = UIImage(named: "idFrameOverlayH9.7", in: Bundle(for: type(of: self)), compatibleWith: nil)
             }
             else if(deviceSize() == "iPad 10.2")
             {
-                overLayImageView?.image = UIImage(named: "idFrameOverlayH10.5")
+                overLayImageView?.image = UIImage(named: "idFrameOverlayH10.5", in: Bundle(for: type(of: self)), compatibleWith: nil)
             }
             else if(deviceSize() == "iPad 10.5")
             {
-                overLayImageView?.image = UIImage(named: "idFrameOverlayH10.5")
+                overLayImageView?.image = UIImage(named: "idFrameOverlayH10.5", in: Bundle(for: type(of: self)), compatibleWith: nil)
             }
             else if(deviceSize() == "iPad 11")
             {
-                overLayImageView?.image = UIImage(named: "idFrameOverlayH10.5")
+                overLayImageView?.image = UIImage(named: "idFrameOverlayH10.5", in: Bundle(for: type(of: self)), compatibleWith: nil)
             }
             else if(deviceSize() == "iPad 12.9")
             {
-                overLayImageView?.image = UIImage(named: "idFrameOverlayH12.9")
+                overLayImageView?.image = UIImage(named: "idFrameOverlayH12.9", in: Bundle(for: type(of: self)), compatibleWith: nil)
             }
             else
             {
-                overLayImageView?.image = UIImage(named: "IdFrameOverlay")
+                overLayImageView?.image = UIImage(named: "IdFrameOverlay", in: Bundle(for: type(of: self)), compatibleWith: nil)
             }
             
             verticalLabel?.text = "Vertical"

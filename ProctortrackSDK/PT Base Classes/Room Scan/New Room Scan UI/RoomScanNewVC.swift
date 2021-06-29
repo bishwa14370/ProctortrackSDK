@@ -137,7 +137,6 @@ class RoomScanNewVC: UIViewController,RoomScanNewOverlayDelegate,AVCaptureFileOu
             self.loadRecordingMethod()
         }
         self.overLayView()
-        self.stopAllOngoingRequests()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -425,7 +424,7 @@ class RoomScanNewVC: UIViewController,RoomScanNewOverlayDelegate,AVCaptureFileOu
     
     func normalButtonToStartAndStopRecording()
     {
-        let normalImage = UIImage(named: "recordingButton")
+        let normalImage = UIImage(named: "recordingButton", in: Bundle(for: type(of: self)), compatibleWith: nil)
         if(deviceSize() == "X" || deviceSize() == "Xr")
         {
              overlayBarViewforButton = UIView(frame: CGRect(x: 0, y: self.view.frame.height - 130, width: self.view.frame.width, height: 100))
@@ -544,8 +543,7 @@ class RoomScanNewVC: UIViewController,RoomScanNewOverlayDelegate,AVCaptureFileOu
             }
         }
         
-        
-        overlayInstructionImage.image = UIImage(named: "NewDeskScanImage")
+        overlayInstructionImage.image = UIImage(named: "NewDeskScanImage", in: Bundle(for: type(of: self)), compatibleWith: nil)
         
         overlayInstructionImage.autoresizingMask = [.flexibleWidth, .flexibleHeight, .flexibleBottomMargin, .flexibleRightMargin, .flexibleLeftMargin, .flexibleTopMargin]
         overlayInstructionImage.contentMode = .scaleAspectFill // OR .scaleAspectFill
@@ -651,9 +649,7 @@ class RoomScanNewVC: UIViewController,RoomScanNewOverlayDelegate,AVCaptureFileOu
                 movieOutput.startRecording(to: pathUrl, recordingDelegate: self)
             }
         }
-        else
-        {
-          /*
+        else {
             is_stream_auto_renaming_enabled = UserDefaults.standard.bool(forKey: streamAutoRenamingKey)
             if (is_stream_auto_renaming_enabled) {
                 if (streamIdExtensionForRoomScan > 0) {
@@ -700,8 +696,6 @@ class RoomScanNewVC: UIViewController,RoomScanNewOverlayDelegate,AVCaptureFileOu
             else {
                 self.getCurrentRoomScanToken(streamName: liveRoomScaningStreamID)
             }
-           */
-            self.getCurrentRoomScanToken(streamName: liveRoomScaningStreamID)
             self.timerLabel.text = "connecting..."
         }
     }
@@ -939,7 +933,7 @@ extension RoomScanNewVC: AntMediaClientDelegate {
         self.dotLabel.blink()
         self.timerLabel.text = self.timeStringForMinAndSec(time: TimeInterval(self.roomScanCount))
         self.roomScanTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.roomScanTimerHandling), userInfo: nil, repeats: true)
-      /*
+        
         is_stream_auto_renaming_enabled = UserDefaults.standard.bool(forKey: streamAutoRenamingKey)
         if (is_stream_auto_renaming_enabled) {
             guard let documentID = UserDefaults.standard.string(forKey: testsession_uuid) else {return}
@@ -957,11 +951,6 @@ extension RoomScanNewVC: AntMediaClientDelegate {
                 let finalMessage = kibanaPrefix + "event: Live_roomscan" + seprator + "type: publishStarted with \(streamId)"
                 NetworkingClass.submitKibanaLogApiCallFromNative(message: finalMessage, level: kibanaLevelName)
             }
-        }
-    */
-        if(kibanaLogEnable == true){
-            let finalMessage = kibanaPrefix + "event: Live_roomscan" + seprator + "type: publishStarted with \(streamId)"
-            NetworkingClass.submitKibanaLogApiCallFromNative(message: finalMessage, level: kibanaLevelName)
         }
     }
     

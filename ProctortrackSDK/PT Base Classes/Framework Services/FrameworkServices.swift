@@ -5,11 +5,8 @@
 import UIKit
 
 class FrameworkServices: NSObject {
-    
-    private override init() {
-    }
-    
-    static func validateLicense(url: String, clientSecretKey: String, bundleId: String, completion: @escaping (Bool, String?) -> Void) {
+
+    class func validateLicense(url: String, clientId: String, accountId: String, firstName: String, lastName: String, email: String, completion: @escaping (Bool, String?) -> Void) {
         guard let url = URL(string: url) else { return }
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "GET"
@@ -26,7 +23,7 @@ class FrameworkServices: NSObject {
         task.resume()
     }
     
-    static func createTestSession(config: Configuration, completion: @escaping (Bool, String?) -> Void) {
+    class func createTestSession(config: Configuration, completion: @escaping (Bool, String?) -> Void) {
         guard let url = URL(string: config.urlString) else { return }
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "GET"

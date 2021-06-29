@@ -7,9 +7,6 @@
 //
 
 import UIKit
-import AVFoundation
-import AVKit
-import AssetsLibrary
 import SystemConfiguration
 
 let maxTimeOfVedio = 30 //in secconds
@@ -33,7 +30,6 @@ class UtilityClass
 
  //Find the datatype of the variable function
     class func classNameAsString(obj: Any) -> String {
-        //prints more readable results for dictionaries, arrays, Int, etc
         return String(describing: type(of: obj))
     }
     

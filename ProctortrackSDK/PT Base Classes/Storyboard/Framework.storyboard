@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FPK-vW-o1Q">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -717,26 +717,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z3E-xX-YMG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1882" y="232"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="3oF-MD-FMi">
-            <objects>
-                <navigationController storyboardIdentifier="NavigationController1" automaticallyAdjustsScrollViewInsets="NO" id="FPK-vW-o1Q" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Shm-Zl-yFr">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="7Ko-nO-RAg" kind="show" id="rSr-iq-3LP"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Yva-9F-lYj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2618" y="233"/>
         </scene>
         <!--Room Scan ResultVC-->
         <scene sceneID="j17-Bw-BJR">
@@ -1521,37 +1501,37 @@
             <objects>
                 <viewController storyboardIdentifier="systemCheckVC" id="7Ko-nO-RAg" customClass="SystemCheckVC" customModule="ProctortrackSDK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u7T-cB-fKY" customClass="GradientView" customModule="ProctortrackSDK" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Circle-b" translatesAutoresizingMaskIntoConstraints="NO" id="56M-gS-mLn">
-                                <rect key="frame" x="58" y="219" width="8" height="8"/>
+                                <rect key="frame" x="58" y="229" width="8" height="8"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="8" id="kWJ-Al-Fve"/>
                                     <constraint firstAttribute="width" constant="8" id="mH9-fn-3Lv"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Camera-b" translatesAutoresizingMaskIntoConstraints="NO" id="uLk-BX-x7I">
-                                <rect key="frame" x="110" y="213" width="20" height="20"/>
+                                <rect key="frame" x="110" y="223" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="SwE-n5-vR4"/>
                                     <constraint firstAttribute="height" constant="20" id="tIy-JJ-ob2"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Camera" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pWu-hR-OQV">
-                                <rect key="frame" x="174" y="211" width="60" height="22.5"/>
+                                <rect key="frame" x="174" y="221" width="60" height="22.5"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Circle-b" translatesAutoresizingMaskIntoConstraints="NO" id="99Q-s1-CZu">
-                                <rect key="frame" x="58" y="269" width="8" height="8"/>
+                                <rect key="frame" x="58" y="279" width="8" height="8"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Microphone-b" translatesAutoresizingMaskIntoConstraints="NO" id="WTq-t4-etB">
-                                <rect key="frame" x="110" y="263" width="20" height="20"/>
+                                <rect key="frame" x="110" y="273" width="20" height="20"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Microphone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tHX-Fc-cp0">
-                                <rect key="frame" x="174" y="262" width="91.5" height="23"/>
+                                <rect key="frame" x="174" y="272.5" width="91.5" height="22.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="91.5" id="TbO-iE-tkL"/>
                                 </constraints>
@@ -1560,49 +1540,49 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Circle-b" translatesAutoresizingMaskIntoConstraints="NO" id="rqd-vw-eHG">
-                                <rect key="frame" x="58" y="319" width="8" height="8"/>
+                                <rect key="frame" x="58" y="329" width="8" height="8"/>
                             </imageView>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bluetooth-b" translatesAutoresizingMaskIntoConstraints="NO" id="hP3-sw-eRu">
-                                <rect key="frame" x="110" y="313" width="20" height="20"/>
+                                <rect key="frame" x="110" y="323" width="20" height="20"/>
                             </imageView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bluetooth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RmM-oX-zwB">
-                                <rect key="frame" x="174" y="311.5" width="169" height="23"/>
+                                <rect key="frame" x="174" y="322" width="169" height="22.5"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Circle-b" translatesAutoresizingMaskIntoConstraints="NO" id="K0f-5B-CQ2">
-                                <rect key="frame" x="58" y="319" width="8" height="8"/>
+                                <rect key="frame" x="58" y="329" width="8" height="8"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Wifi-b" translatesAutoresizingMaskIntoConstraints="NO" id="ecs-RZ-Tka">
-                                <rect key="frame" x="110" y="313" width="20" height="20"/>
+                                <rect key="frame" x="110" y="323" width="20" height="20"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Internet connection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0yD-yg-8Dn">
-                                <rect key="frame" x="174" y="311" width="149.5" height="22.5"/>
+                                <rect key="frame" x="174" y="321" width="149.5" height="22.5"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Circle-b" translatesAutoresizingMaskIntoConstraints="NO" id="jTm-gc-lde">
-                                <rect key="frame" x="58" y="369" width="8" height="8"/>
+                                <rect key="frame" x="58" y="379" width="8" height="8"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Storage-b" translatesAutoresizingMaskIntoConstraints="NO" id="jaf-lM-MTo">
-                                <rect key="frame" x="110" y="363" width="20" height="20"/>
+                                <rect key="frame" x="110" y="373" width="20" height="20"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Storage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wfI-oE-sLH">
-                                <rect key="frame" x="174" y="360" width="60" height="22.5"/>
+                                <rect key="frame" x="174" y="370" width="60" height="22.5"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Circle-b" translatesAutoresizingMaskIntoConstraints="NO" id="ey0-ke-gg4">
-                                <rect key="frame" x="58" y="419" width="8" height="8"/>
+                                <rect key="frame" x="58" y="429" width="8" height="8"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Battery-b" translatesAutoresizingMaskIntoConstraints="NO" id="du9-2f-3s9">
-                                <rect key="frame" x="110" y="413" width="20" height="20"/>
+                                <rect key="frame" x="110" y="423" width="20" height="20"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Battery" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dl3-nL-xXJ">
-                                <rect key="frame" x="174" y="411.5" width="55.5" height="23"/>
+                                <rect key="frame" x="174" y="422" width="55.5" height="22.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="55.5" id="sED-e9-PgK"/>
                                 </constraints>
@@ -1611,13 +1591,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Circle-b" translatesAutoresizingMaskIntoConstraints="NO" id="at9-J1-pbR">
-                                <rect key="frame" x="58" y="469" width="8" height="8"/>
+                                <rect key="frame" x="58" y="479" width="8" height="8"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SystemCheck-b" translatesAutoresizingMaskIntoConstraints="NO" id="z1g-e0-rkq">
-                                <rect key="frame" x="110" y="463" width="20" height="20"/>
+                                <rect key="frame" x="110" y="473" width="20" height="20"/>
                             </imageView>
                             <view contentMode="scaleToFill" restorationIdentifier="SystemCheckAlertView" translatesAutoresizingMaskIntoConstraints="NO" id="xUQ-iK-ODc" customClass="SystemCheckAlertView" customModule="ProctortrackSDK" customModuleProvider="target">
-                                <rect key="frame" x="34.5" y="232" width="306" height="183"/>
+                                <rect key="frame" x="34.5" y="242" width="306" height="183"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zcj-S7-dRp">
                                         <rect key="frame" x="210" y="133" width="80" height="42"/>
@@ -1669,7 +1649,7 @@
                                 </connections>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="System" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bHv-3Z-Mqt">
-                                <rect key="frame" x="174" y="461.5" width="58" height="23"/>
+                                <rect key="frame" x="174" y="472" width="58" height="22.5"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -2747,7 +2727,7 @@
         <segue reference="eyW-y4-0HW"/>
         <segue reference="ShB-pe-jGK"/>
         <segue reference="08Q-YB-Bdl"/>
-        <segue reference="rVp-S9-SEw"/>
+        <segue reference="Udm-jX-7Ak"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
